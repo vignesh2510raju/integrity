@@ -10,8 +10,7 @@ int read_matrices_pose(std::map<int, Eigen::Matrix4d>& matrices)
 	std::string filename;
 	filename= "00";
 	cout<< "filename: "<< filename<< endl;
-	//string filenameIn= "/home/vignesh/Desktop/integrity/Data/poses/" + filename + ".txt";
-	string filenameIn= "/home/vignesh/integrity/Data/poses/00.txt";
+	string filenameIn= "../Data/poses/00.txt";
 	fstream a_file( filenameIn.c_str() , ios::in | ios::ate);
 	a_file.seekg( 0, ios::beg );
 

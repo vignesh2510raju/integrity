@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/vignesh/integrity/src/Main/header/Inputs.h
+/home/guille/Desktop/integrity/src/Main/header/Inputs.h
 iostream
 -
 unistd.h
@@ -20,9 +20,9 @@ stdio.h
 getopt.h
 -
 ../header/classes.h
-/home/vignesh/integrity/src/Main/header/classes.h
+/home/guille/Desktop/integrity/src/Main/header/classes.h
 
-/home/vignesh/integrity/src/Main/header/MAIN.h
+/home/guille/Desktop/integrity/src/Main/header/MAIN.h
 pcl/ModelCoefficients.h
 -
 pcl/point_types.h
@@ -78,11 +78,11 @@ vector
 pwd.h
 -
 
-/home/vignesh/integrity/src/Main/header/UpdateMAP_saveFrame.h
+/home/guille/Desktop/integrity/src/Main/header/UpdateMAP_saveFrame.h
 ../header/classes.h
-/home/vignesh/integrity/src/Main/header/classes.h
+/home/guille/Desktop/integrity/src/Main/header/classes.h
 
-/home/vignesh/integrity/src/Main/header/classes.h
+/home/guille/Desktop/integrity/src/Main/header/classes.h
 vector
 -
 pcl/common/common.h
@@ -92,7 +92,7 @@ pcl/ModelCoefficients.h
 Eigen/Dense
 -
 
-/home/vignesh/integrity/src/Main/header/cluster_extraction.h
+/home/guille/Desktop/integrity/src/Main/header/cluster_extraction.h
 pcl/ModelCoefficients.h
 -
 pcl/point_types.h
@@ -146,9 +146,9 @@ Eigen/Dense
 vector
 -
 ../header/classes.h
-/home/vignesh/integrity/src/Main/header/classes.h
+/home/guille/Desktop/integrity/src/Main/header/classes.h
 
-/home/vignesh/integrity/src/Main/header/cylinder_segmentation.h
+/home/guille/Desktop/integrity/src/Main/header/cylinder_segmentation.h
 pcl/ModelCoefficients.h
 -
 pcl/point_types.h
@@ -202,9 +202,9 @@ Eigen/Dense
 vector
 -
 classes.h
-/home/vignesh/integrity/src/Main/header/classes.h
+/home/guille/Desktop/integrity/src/Main/header/classes.h
 
-/home/vignesh/integrity/src/Main/header/extracting_far_away_points.h
+/home/guille/Desktop/integrity/src/Main/header/extracting_far_away_points.h
 pcl/ModelCoefficients.h
 -
 pcl/point_types.h
@@ -246,9 +246,9 @@ pcl/common/distances.h
 pcl/common/common_headers.h
 -
 ../header/classes.h
-/home/vignesh/integrity/src/Main/header/classes.h
+/home/guille/Desktop/integrity/src/Main/header/classes.h
 
-/home/vignesh/integrity/src/Main/header/extracting_voxel_grid.h
+/home/guille/Desktop/integrity/src/Main/header/extracting_voxel_grid.h
 pcl/ModelCoefficients.h
 -
 pcl/point_types.h
@@ -288,7 +288,7 @@ pcl/common/distances.h
 pcl/common/common_headers.h
 -
 
-/home/vignesh/integrity/src/Main/header/plane_from_cluster.h
+/home/guille/Desktop/integrity/src/Main/header/plane_from_cluster.h
 pcl/ModelCoefficients.h
 -
 pcl/point_types.h
@@ -340,9 +340,9 @@ Eigen/Dense
 vector
 -
 classes.h
-/home/vignesh/integrity/src/Main/header/classes.h
+/home/guille/Desktop/integrity/src/Main/header/classes.h
 
-/home/vignesh/integrity/src/Main/header/plane_from_cluster_2.h
+/home/guille/Desktop/integrity/src/Main/header/plane_from_cluster_2.h
 pcl/ModelCoefficients.h
 -
 pcl/point_types.h
@@ -398,9 +398,9 @@ vector
 pcl/segmentation/organized_multi_plane_segmentation.h
 -
 classes.h
-/home/vignesh/integrity/src/Main/header/classes.h
+/home/guille/Desktop/integrity/src/Main/header/classes.h
 
-/home/vignesh/integrity/src/Main/header/read_matrices_pose.h
+/home/guille/Desktop/integrity/src/Main/header/read_matrices_pose.h
 iostream
 -
 map
@@ -416,7 +416,7 @@ string
 Eigen/Dense
 -
 
-/home/vignesh/integrity/src/Main/header/read_transformations.h
+/home/guille/Desktop/integrity/src/Main/header/read_transformations.h
 vector
 -
 iostream
@@ -426,7 +426,7 @@ map
 Eigen/Dense
 -
 
-/home/vignesh/integrity/src/Main/header/read_velo_to_cam.h
+/home/guille/Desktop/integrity/src/Main/header/read_velo_to_cam.h
 Eigen/Dense
 -
 iostream
@@ -436,7 +436,7 @@ fstream
 string
 -
 
-/home/vignesh/integrity/src/Main/header/store_values_in_vector_of_maps.h
+/home/guille/Desktop/integrity/src/Main/header/store_values_in_vector_of_maps.h
 pcl/ModelCoefficients.h
 -
 pcl/point_types.h
@@ -490,7 +490,7 @@ Eigen/Dense
 vector
 -
 
-/home/vignesh/integrity/src/Main/header/user_input.h
+/home/guille/Desktop/integrity/src/Main/header/user_input.h
 pcl/ModelCoefficients.h
 -
 pcl/point_types.h
@@ -498,7 +498,7 @@ pcl/point_types.h
 pcl/io/pcd_io.h
 -
 
-/home/vignesh/integrity/src/Main/header/visualize.h
+/home/guille/Desktop/integrity/src/Main/header/visualize.h
 pcl/visualization/pcl_visualizer.h
 -
 pcl/visualization/cloud_viewer.h
@@ -508,89 +508,89 @@ pcl/ModelCoefficients.h
 pcl/point_types.h
 -
 
-/home/vignesh/integrity/src/Main/src/Inputs.cpp
+/home/guille/Desktop/integrity/src/Main/src/Inputs.cpp
 ../header/Inputs.h
-/home/vignesh/integrity/src/Main/header/Inputs.h
+/home/guille/Desktop/integrity/src/Main/header/Inputs.h
 
-/home/vignesh/integrity/src/Main/src/MAIN.cpp
+/home/guille/Desktop/integrity/src/Main/src/MAIN.cpp
 ../header/MAIN.h
-/home/vignesh/integrity/src/Main/header/MAIN.h
+/home/guille/Desktop/integrity/src/Main/header/MAIN.h
 ../header/classes.h
-/home/vignesh/integrity/src/Main/header/classes.h
+/home/guille/Desktop/integrity/src/Main/header/classes.h
 ../header/read_matrices_pose.h
-/home/vignesh/integrity/src/Main/header/read_matrices_pose.h
+/home/guille/Desktop/integrity/src/Main/header/read_matrices_pose.h
 ../header/read_velo_to_cam.h
-/home/vignesh/integrity/src/Main/header/read_velo_to_cam.h
+/home/guille/Desktop/integrity/src/Main/header/read_velo_to_cam.h
 ../header/read_transformations.h
-/home/vignesh/integrity/src/Main/header/read_transformations.h
+/home/guille/Desktop/integrity/src/Main/header/read_transformations.h
 ../header/visualize.h
-/home/vignesh/integrity/src/Main/header/visualize.h
+/home/guille/Desktop/integrity/src/Main/header/visualize.h
 ../header/user_input.h
-/home/vignesh/integrity/src/Main/header/user_input.h
+/home/guille/Desktop/integrity/src/Main/header/user_input.h
 ../header/extracting_far_away_points.h
-/home/vignesh/integrity/src/Main/header/extracting_far_away_points.h
+/home/guille/Desktop/integrity/src/Main/header/extracting_far_away_points.h
 ../header/extracting_voxel_grid.h
-/home/vignesh/integrity/src/Main/header/extracting_voxel_grid.h
+/home/guille/Desktop/integrity/src/Main/header/extracting_voxel_grid.h
 ../header/cluster_extraction.h
-/home/vignesh/integrity/src/Main/header/cluster_extraction.h
+/home/guille/Desktop/integrity/src/Main/header/cluster_extraction.h
 ../header/plane_from_cluster.h
-/home/vignesh/integrity/src/Main/header/plane_from_cluster.h
+/home/guille/Desktop/integrity/src/Main/header/plane_from_cluster.h
 ../header/plane_from_cluster_2.h
-/home/vignesh/integrity/src/Main/header/plane_from_cluster_2.h
+/home/guille/Desktop/integrity/src/Main/header/plane_from_cluster_2.h
 ../header/cylinder_segmentation.h
-/home/vignesh/integrity/src/Main/header/cylinder_segmentation.h
+/home/guille/Desktop/integrity/src/Main/header/cylinder_segmentation.h
 ../header/store_values_in_vector_of_maps.h
-/home/vignesh/integrity/src/Main/header/store_values_in_vector_of_maps.h
+/home/guille/Desktop/integrity/src/Main/header/store_values_in_vector_of_maps.h
 ../header/Inputs.h
-/home/vignesh/integrity/src/Main/header/Inputs.h
+/home/guille/Desktop/integrity/src/Main/header/Inputs.h
 ../header/UpdateMAP_saveFrame.h
-/home/vignesh/integrity/src/Main/header/UpdateMAP_saveFrame.h
+/home/guille/Desktop/integrity/src/Main/header/UpdateMAP_saveFrame.h
 
-/home/vignesh/integrity/src/Main/src/UpdateMAP_saveFrame.cpp
+/home/guille/Desktop/integrity/src/Main/src/UpdateMAP_saveFrame.cpp
 ../header/UpdateMAP_saveFrame.h
-/home/vignesh/integrity/src/Main/header/UpdateMAP_saveFrame.h
+/home/guille/Desktop/integrity/src/Main/header/UpdateMAP_saveFrame.h
 
-/home/vignesh/integrity/src/Main/src/classes.cpp
+/home/guille/Desktop/integrity/src/Main/src/classes.cpp
 ../header/classes.h
-/home/vignesh/integrity/src/Main/header/classes.h
+/home/guille/Desktop/integrity/src/Main/header/classes.h
 
-/home/vignesh/integrity/src/Main/src/cluster_extraction.cpp
+/home/guille/Desktop/integrity/src/Main/src/cluster_extraction.cpp
 ../header/cluster_extraction.h
-/home/vignesh/integrity/src/Main/header/cluster_extraction.h
+/home/guille/Desktop/integrity/src/Main/header/cluster_extraction.h
 
-/home/vignesh/integrity/src/Main/src/cylinder_segmentation.cpp
+/home/guille/Desktop/integrity/src/Main/src/cylinder_segmentation.cpp
 ../header/cylinder_segmentation.h
-/home/vignesh/integrity/src/Main/header/cylinder_segmentation.h
+/home/guille/Desktop/integrity/src/Main/header/cylinder_segmentation.h
 
-/home/vignesh/integrity/src/Main/src/extracting_far_away_points.cpp
+/home/guille/Desktop/integrity/src/Main/src/extracting_far_away_points.cpp
 ../header/extracting_far_away_points.h
-/home/vignesh/integrity/src/Main/header/extracting_far_away_points.h
+/home/guille/Desktop/integrity/src/Main/header/extracting_far_away_points.h
 
-/home/vignesh/integrity/src/Main/src/extracting_voxel_grid.cpp
+/home/guille/Desktop/integrity/src/Main/src/extracting_voxel_grid.cpp
 ../header/extracting_voxel_grid.h
-/home/vignesh/integrity/src/Main/header/extracting_voxel_grid.h
+/home/guille/Desktop/integrity/src/Main/header/extracting_voxel_grid.h
 pcl/ModelCoefficients.h
 -
 pcl/point_types.h
 -
 
-/home/vignesh/integrity/src/Main/src/plane_from_cluster.cpp
+/home/guille/Desktop/integrity/src/Main/src/plane_from_cluster.cpp
 ../header/plane_from_cluster.h
-/home/vignesh/integrity/src/Main/header/plane_from_cluster.h
+/home/guille/Desktop/integrity/src/Main/header/plane_from_cluster.h
 
-/home/vignesh/integrity/src/Main/src/read_matrices_pose.cpp
+/home/guille/Desktop/integrity/src/Main/src/read_matrices_pose.cpp
 ../header/read_matrices_pose.h
-/home/vignesh/integrity/src/Main/header/read_matrices_pose.h
+/home/guille/Desktop/integrity/src/Main/header/read_matrices_pose.h
 
-/home/vignesh/integrity/src/Main/src/read_transformations.cpp
+/home/guille/Desktop/integrity/src/Main/src/read_transformations.cpp
 ../header/read_matrices_pose.h
-/home/vignesh/integrity/src/Main/header/read_matrices_pose.h
+/home/guille/Desktop/integrity/src/Main/header/read_matrices_pose.h
 ../header/read_velo_to_cam.h
-/home/vignesh/integrity/src/Main/header/read_velo_to_cam.h
+/home/guille/Desktop/integrity/src/Main/header/read_velo_to_cam.h
 ../header/read_transformations.h
-/home/vignesh/integrity/src/Main/header/read_transformations.h
+/home/guille/Desktop/integrity/src/Main/header/read_transformations.h
 
-/home/vignesh/integrity/src/Main/src/user_input.cpp
+/home/guille/Desktop/integrity/src/Main/src/user_input.cpp
 pcl/ModelCoefficients.h
 -
 pcl/point_types.h
@@ -598,9 +598,9 @@ pcl/point_types.h
 pcl/io/pcd_io.h
 -
 ../header/user_input.h
-/home/vignesh/integrity/src/Main/header/user_input.h
+/home/guille/Desktop/integrity/src/Main/header/user_input.h
 
-/home/vignesh/integrity/src/Main/src/visualize.cpp
+/home/guille/Desktop/integrity/src/Main/src/visualize.cpp
 pcl/visualization/pcl_visualizer.h
 -
 pcl/visualization/cloud_viewer.h
@@ -612,7 +612,7 @@ pcl/point_types.h
 pcl/io/pcd_io.h
 -
 ../header/visualize.h
-/home/vignesh/integrity/src/Main/header/visualize.h
+/home/guille/Desktop/integrity/src/Main/header/visualize.h
 
 /usr/include/eigen3/Eigen/Cholesky
 Core

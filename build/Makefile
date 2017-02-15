@@ -38,22 +38,19 @@ RM = /usr/bin/cmake -E remove -f
 # Escaping for special characters.
 EQUALS = =
 
-# The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
-
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/vignesh/integrity
+CMAKE_SOURCE_DIR = /home/guille/Desktop/integrity
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/vignesh/integrity/build
+CMAKE_BINARY_DIR = /home/guille/Desktop/integrity/build
 
 #=============================================================================
 # Targets provided globally by CMake.
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/bin/cmake-gui -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running interactive CMake command-line interface..."
+	/usr/bin/cmake -i .
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -72,9 +69,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/vignesh/integrity/build/CMakeFiles /home/vignesh/integrity/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/guille/Desktop/integrity/build/CMakeFiles /home/guille/Desktop/integrity/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/vignesh/integrity/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/guille/Desktop/integrity/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -102,258 +99,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Main
+# Target rules for targets named main
 
 # Build rule for target.
-Main: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Main
-.PHONY : Main
+main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 main
+.PHONY : main
 
 # fast build rule for target.
-Main/fast:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/build
-.PHONY : Main/fast
-
-#=============================================================================
-# Target rules for targets named bare_earth
-
-# Build rule for target.
-bare_earth: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 bare_earth
-.PHONY : bare_earth
-
-# fast build rule for target.
-bare_earth/fast:
-	$(MAKE) -f CMakeFiles/bare_earth.dir/build.make CMakeFiles/bare_earth.dir/build
-.PHONY : bare_earth/fast
-
-#=============================================================================
-# Target rules for targets named cloud_viewer
-
-# Build rule for target.
-cloud_viewer: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 cloud_viewer
-.PHONY : cloud_viewer
-
-# fast build rule for target.
-cloud_viewer/fast:
-	$(MAKE) -f CMakeFiles/cloud_viewer.dir/build.make CMakeFiles/cloud_viewer.dir/build
-.PHONY : cloud_viewer/fast
-
-#=============================================================================
-# Target rules for targets named cylinder_extraction
-
-# Build rule for target.
-cylinder_extraction: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 cylinder_extraction
-.PHONY : cylinder_extraction
-
-# fast build rule for target.
-cylinder_extraction/fast:
-	$(MAKE) -f CMakeFiles/cylinder_extraction.dir/build.make CMakeFiles/cylinder_extraction.dir/build
-.PHONY : cylinder_extraction/fast
-
-#=============================================================================
-# Target rules for targets named cylinder_segmentation
-
-# Build rule for target.
-cylinder_segmentation: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 cylinder_segmentation
-.PHONY : cylinder_segmentation
-
-# fast build rule for target.
-cylinder_segmentation/fast:
-	$(MAKE) -f CMakeFiles/cylinder_segmentation.dir/build.make CMakeFiles/cylinder_segmentation.dir/build
-.PHONY : cylinder_segmentation/fast
-
-#=============================================================================
-# Target rules for targets named don_segmentation
-
-# Build rule for target.
-don_segmentation: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 don_segmentation
-.PHONY : don_segmentation
-
-# fast build rule for target.
-don_segmentation/fast:
-	$(MAKE) -f CMakeFiles/don_segmentation.dir/build.make CMakeFiles/don_segmentation.dir/build
-.PHONY : don_segmentation/fast
-
-#=============================================================================
-# Target rules for targets named extract_ground_and_don
-
-# Build rule for target.
-extract_ground_and_don: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 extract_ground_and_don
-.PHONY : extract_ground_and_don
-
-# fast build rule for target.
-extract_ground_and_don/fast:
-	$(MAKE) -f CMakeFiles/extract_ground_and_don.dir/build.make CMakeFiles/extract_ground_and_don.dir/build
-.PHONY : extract_ground_and_don/fast
-
-#=============================================================================
-# Target rules for targets named matrix_transform
-
-# Build rule for target.
-matrix_transform: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 matrix_transform
-.PHONY : matrix_transform
-
-# fast build rule for target.
-matrix_transform/fast:
-	$(MAKE) -f CMakeFiles/matrix_transform.dir/build.make CMakeFiles/matrix_transform.dir/build
-.PHONY : matrix_transform/fast
-
-#=============================================================================
-# Target rules for targets named narf_keypoint_extraction
-
-# Build rule for target.
-narf_keypoint_extraction: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 narf_keypoint_extraction
-.PHONY : narf_keypoint_extraction
-
-# fast build rule for target.
-narf_keypoint_extraction/fast:
-	$(MAKE) -f CMakeFiles/narf_keypoint_extraction.dir/build.make CMakeFiles/narf_keypoint_extraction.dir/build
-.PHONY : narf_keypoint_extraction/fast
-
-#=============================================================================
-# Target rules for targets named normal_estimation
-
-# Build rule for target.
-normal_estimation: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 normal_estimation
-.PHONY : normal_estimation
-
-# fast build rule for target.
-normal_estimation/fast:
-	$(MAKE) -f CMakeFiles/normal_estimation.dir/build.make CMakeFiles/normal_estimation.dir/build
-.PHONY : normal_estimation/fast
-
-#=============================================================================
-# Target rules for targets named pcd_read
-
-# Build rule for target.
-pcd_read: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 pcd_read
-.PHONY : pcd_read
-
-# fast build rule for target.
-pcd_read/fast:
-	$(MAKE) -f CMakeFiles/pcd_read.dir/build.make CMakeFiles/pcd_read.dir/build
-.PHONY : pcd_read/fast
-
-#=============================================================================
-# Target rules for targets named pcd_viewer
-
-# Build rule for target.
-pcd_viewer: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 pcd_viewer
-.PHONY : pcd_viewer
-
-# fast build rule for target.
-pcd_viewer/fast:
-	$(MAKE) -f CMakeFiles/pcd_viewer.dir/build.make CMakeFiles/pcd_viewer.dir/build
-.PHONY : pcd_viewer/fast
-
-#=============================================================================
-# Target rules for targets named pcd_write
-
-# Build rule for target.
-pcd_write: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 pcd_write
-.PHONY : pcd_write
-
-# fast build rule for target.
-pcd_write/fast:
-	$(MAKE) -f CMakeFiles/pcd_write.dir/build.make CMakeFiles/pcd_write.dir/build
-.PHONY : pcd_write/fast
-
-#=============================================================================
-# Target rules for targets named planar_segmentation
-
-# Build rule for target.
-planar_segmentation: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 planar_segmentation
-.PHONY : planar_segmentation
-
-# fast build rule for target.
-planar_segmentation/fast:
-	$(MAKE) -f CMakeFiles/planar_segmentation.dir/build.make CMakeFiles/planar_segmentation.dir/build
-.PHONY : planar_segmentation/fast
-
-#=============================================================================
-# Target rules for targets named random_sample_consensus
-
-# Build rule for target.
-random_sample_consensus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 random_sample_consensus
-.PHONY : random_sample_consensus
-
-# fast build rule for target.
-random_sample_consensus/fast:
-	$(MAKE) -f CMakeFiles/random_sample_consensus.dir/build.make CMakeFiles/random_sample_consensus.dir/build
-.PHONY : random_sample_consensus/fast
-
-#=============================================================================
-# Target rules for targets named range_image_border_extraction
-
-# Build rule for target.
-range_image_border_extraction: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 range_image_border_extraction
-.PHONY : range_image_border_extraction
-
-# fast build rule for target.
-range_image_border_extraction/fast:
-	$(MAKE) -f CMakeFiles/range_image_border_extraction.dir/build.make CMakeFiles/range_image_border_extraction.dir/build
-.PHONY : range_image_border_extraction/fast
-
-#=============================================================================
-# Target rules for targets named range_image_creation
-
-# Build rule for target.
-range_image_creation: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 range_image_creation
-.PHONY : range_image_creation
-
-# fast build rule for target.
-range_image_creation/fast:
-	$(MAKE) -f CMakeFiles/range_image_creation.dir/build.make CMakeFiles/range_image_creation.dir/build
-.PHONY : range_image_creation/fast
-
-#=============================================================================
-# Target rules for targets named range_image_visualization
-
-# Build rule for target.
-range_image_visualization: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 range_image_visualization
-.PHONY : range_image_visualization
-
-# fast build rule for target.
-range_image_visualization/fast:
-	$(MAKE) -f CMakeFiles/range_image_visualization.dir/build.make CMakeFiles/range_image_visualization.dir/build
-.PHONY : range_image_visualization/fast
-
-#=============================================================================
-# Target rules for targets named voxel_grid
-
-# Build rule for target.
-voxel_grid: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 voxel_grid
-.PHONY : voxel_grid
-
-# fast build rule for target.
-voxel_grid/fast:
-	$(MAKE) -f CMakeFiles/voxel_grid.dir/build.make CMakeFiles/voxel_grid.dir/build
-.PHONY : voxel_grid/fast
+main/fast:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+.PHONY : main/fast
 
 src/Main/src/Inputs.o: src/Main/src/Inputs.cpp.o
 .PHONY : src/Main/src/Inputs.o
 
 # target to build an object file
 src/Main/src/Inputs.cpp.o:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/Inputs.cpp.o
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/Inputs.cpp.o
 .PHONY : src/Main/src/Inputs.cpp.o
 
 src/Main/src/Inputs.i: src/Main/src/Inputs.cpp.i
@@ -361,7 +124,7 @@ src/Main/src/Inputs.i: src/Main/src/Inputs.cpp.i
 
 # target to preprocess a source file
 src/Main/src/Inputs.cpp.i:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/Inputs.cpp.i
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/Inputs.cpp.i
 .PHONY : src/Main/src/Inputs.cpp.i
 
 src/Main/src/Inputs.s: src/Main/src/Inputs.cpp.s
@@ -369,7 +132,7 @@ src/Main/src/Inputs.s: src/Main/src/Inputs.cpp.s
 
 # target to generate assembly for a file
 src/Main/src/Inputs.cpp.s:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/Inputs.cpp.s
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/Inputs.cpp.s
 .PHONY : src/Main/src/Inputs.cpp.s
 
 src/Main/src/MAIN.o: src/Main/src/MAIN.cpp.o
@@ -377,7 +140,7 @@ src/Main/src/MAIN.o: src/Main/src/MAIN.cpp.o
 
 # target to build an object file
 src/Main/src/MAIN.cpp.o:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/MAIN.cpp.o
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/MAIN.cpp.o
 .PHONY : src/Main/src/MAIN.cpp.o
 
 src/Main/src/MAIN.i: src/Main/src/MAIN.cpp.i
@@ -385,7 +148,7 @@ src/Main/src/MAIN.i: src/Main/src/MAIN.cpp.i
 
 # target to preprocess a source file
 src/Main/src/MAIN.cpp.i:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/MAIN.cpp.i
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/MAIN.cpp.i
 .PHONY : src/Main/src/MAIN.cpp.i
 
 src/Main/src/MAIN.s: src/Main/src/MAIN.cpp.s
@@ -393,7 +156,7 @@ src/Main/src/MAIN.s: src/Main/src/MAIN.cpp.s
 
 # target to generate assembly for a file
 src/Main/src/MAIN.cpp.s:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/MAIN.cpp.s
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/MAIN.cpp.s
 .PHONY : src/Main/src/MAIN.cpp.s
 
 src/Main/src/UpdateMAP_saveFrame.o: src/Main/src/UpdateMAP_saveFrame.cpp.o
@@ -401,7 +164,7 @@ src/Main/src/UpdateMAP_saveFrame.o: src/Main/src/UpdateMAP_saveFrame.cpp.o
 
 # target to build an object file
 src/Main/src/UpdateMAP_saveFrame.cpp.o:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/UpdateMAP_saveFrame.cpp.o
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/UpdateMAP_saveFrame.cpp.o
 .PHONY : src/Main/src/UpdateMAP_saveFrame.cpp.o
 
 src/Main/src/UpdateMAP_saveFrame.i: src/Main/src/UpdateMAP_saveFrame.cpp.i
@@ -409,7 +172,7 @@ src/Main/src/UpdateMAP_saveFrame.i: src/Main/src/UpdateMAP_saveFrame.cpp.i
 
 # target to preprocess a source file
 src/Main/src/UpdateMAP_saveFrame.cpp.i:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/UpdateMAP_saveFrame.cpp.i
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/UpdateMAP_saveFrame.cpp.i
 .PHONY : src/Main/src/UpdateMAP_saveFrame.cpp.i
 
 src/Main/src/UpdateMAP_saveFrame.s: src/Main/src/UpdateMAP_saveFrame.cpp.s
@@ -417,7 +180,7 @@ src/Main/src/UpdateMAP_saveFrame.s: src/Main/src/UpdateMAP_saveFrame.cpp.s
 
 # target to generate assembly for a file
 src/Main/src/UpdateMAP_saveFrame.cpp.s:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/UpdateMAP_saveFrame.cpp.s
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/UpdateMAP_saveFrame.cpp.s
 .PHONY : src/Main/src/UpdateMAP_saveFrame.cpp.s
 
 src/Main/src/classes.o: src/Main/src/classes.cpp.o
@@ -425,7 +188,7 @@ src/Main/src/classes.o: src/Main/src/classes.cpp.o
 
 # target to build an object file
 src/Main/src/classes.cpp.o:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/classes.cpp.o
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/classes.cpp.o
 .PHONY : src/Main/src/classes.cpp.o
 
 src/Main/src/classes.i: src/Main/src/classes.cpp.i
@@ -433,7 +196,7 @@ src/Main/src/classes.i: src/Main/src/classes.cpp.i
 
 # target to preprocess a source file
 src/Main/src/classes.cpp.i:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/classes.cpp.i
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/classes.cpp.i
 .PHONY : src/Main/src/classes.cpp.i
 
 src/Main/src/classes.s: src/Main/src/classes.cpp.s
@@ -441,7 +204,7 @@ src/Main/src/classes.s: src/Main/src/classes.cpp.s
 
 # target to generate assembly for a file
 src/Main/src/classes.cpp.s:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/classes.cpp.s
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/classes.cpp.s
 .PHONY : src/Main/src/classes.cpp.s
 
 src/Main/src/cluster_extraction.o: src/Main/src/cluster_extraction.cpp.o
@@ -449,7 +212,7 @@ src/Main/src/cluster_extraction.o: src/Main/src/cluster_extraction.cpp.o
 
 # target to build an object file
 src/Main/src/cluster_extraction.cpp.o:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/cluster_extraction.cpp.o
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/cluster_extraction.cpp.o
 .PHONY : src/Main/src/cluster_extraction.cpp.o
 
 src/Main/src/cluster_extraction.i: src/Main/src/cluster_extraction.cpp.i
@@ -457,7 +220,7 @@ src/Main/src/cluster_extraction.i: src/Main/src/cluster_extraction.cpp.i
 
 # target to preprocess a source file
 src/Main/src/cluster_extraction.cpp.i:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/cluster_extraction.cpp.i
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/cluster_extraction.cpp.i
 .PHONY : src/Main/src/cluster_extraction.cpp.i
 
 src/Main/src/cluster_extraction.s: src/Main/src/cluster_extraction.cpp.s
@@ -465,7 +228,7 @@ src/Main/src/cluster_extraction.s: src/Main/src/cluster_extraction.cpp.s
 
 # target to generate assembly for a file
 src/Main/src/cluster_extraction.cpp.s:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/cluster_extraction.cpp.s
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/cluster_extraction.cpp.s
 .PHONY : src/Main/src/cluster_extraction.cpp.s
 
 src/Main/src/cylinder_segmentation.o: src/Main/src/cylinder_segmentation.cpp.o
@@ -473,7 +236,7 @@ src/Main/src/cylinder_segmentation.o: src/Main/src/cylinder_segmentation.cpp.o
 
 # target to build an object file
 src/Main/src/cylinder_segmentation.cpp.o:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/cylinder_segmentation.cpp.o
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/cylinder_segmentation.cpp.o
 .PHONY : src/Main/src/cylinder_segmentation.cpp.o
 
 src/Main/src/cylinder_segmentation.i: src/Main/src/cylinder_segmentation.cpp.i
@@ -481,7 +244,7 @@ src/Main/src/cylinder_segmentation.i: src/Main/src/cylinder_segmentation.cpp.i
 
 # target to preprocess a source file
 src/Main/src/cylinder_segmentation.cpp.i:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/cylinder_segmentation.cpp.i
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/cylinder_segmentation.cpp.i
 .PHONY : src/Main/src/cylinder_segmentation.cpp.i
 
 src/Main/src/cylinder_segmentation.s: src/Main/src/cylinder_segmentation.cpp.s
@@ -489,7 +252,7 @@ src/Main/src/cylinder_segmentation.s: src/Main/src/cylinder_segmentation.cpp.s
 
 # target to generate assembly for a file
 src/Main/src/cylinder_segmentation.cpp.s:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/cylinder_segmentation.cpp.s
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/cylinder_segmentation.cpp.s
 .PHONY : src/Main/src/cylinder_segmentation.cpp.s
 
 src/Main/src/extracting_far_away_points.o: src/Main/src/extracting_far_away_points.cpp.o
@@ -497,7 +260,7 @@ src/Main/src/extracting_far_away_points.o: src/Main/src/extracting_far_away_poin
 
 # target to build an object file
 src/Main/src/extracting_far_away_points.cpp.o:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/extracting_far_away_points.cpp.o
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/extracting_far_away_points.cpp.o
 .PHONY : src/Main/src/extracting_far_away_points.cpp.o
 
 src/Main/src/extracting_far_away_points.i: src/Main/src/extracting_far_away_points.cpp.i
@@ -505,7 +268,7 @@ src/Main/src/extracting_far_away_points.i: src/Main/src/extracting_far_away_poin
 
 # target to preprocess a source file
 src/Main/src/extracting_far_away_points.cpp.i:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/extracting_far_away_points.cpp.i
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/extracting_far_away_points.cpp.i
 .PHONY : src/Main/src/extracting_far_away_points.cpp.i
 
 src/Main/src/extracting_far_away_points.s: src/Main/src/extracting_far_away_points.cpp.s
@@ -513,7 +276,7 @@ src/Main/src/extracting_far_away_points.s: src/Main/src/extracting_far_away_poin
 
 # target to generate assembly for a file
 src/Main/src/extracting_far_away_points.cpp.s:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/extracting_far_away_points.cpp.s
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/extracting_far_away_points.cpp.s
 .PHONY : src/Main/src/extracting_far_away_points.cpp.s
 
 src/Main/src/extracting_voxel_grid.o: src/Main/src/extracting_voxel_grid.cpp.o
@@ -521,7 +284,7 @@ src/Main/src/extracting_voxel_grid.o: src/Main/src/extracting_voxel_grid.cpp.o
 
 # target to build an object file
 src/Main/src/extracting_voxel_grid.cpp.o:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/extracting_voxel_grid.cpp.o
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/extracting_voxel_grid.cpp.o
 .PHONY : src/Main/src/extracting_voxel_grid.cpp.o
 
 src/Main/src/extracting_voxel_grid.i: src/Main/src/extracting_voxel_grid.cpp.i
@@ -529,7 +292,7 @@ src/Main/src/extracting_voxel_grid.i: src/Main/src/extracting_voxel_grid.cpp.i
 
 # target to preprocess a source file
 src/Main/src/extracting_voxel_grid.cpp.i:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/extracting_voxel_grid.cpp.i
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/extracting_voxel_grid.cpp.i
 .PHONY : src/Main/src/extracting_voxel_grid.cpp.i
 
 src/Main/src/extracting_voxel_grid.s: src/Main/src/extracting_voxel_grid.cpp.s
@@ -537,7 +300,7 @@ src/Main/src/extracting_voxel_grid.s: src/Main/src/extracting_voxel_grid.cpp.s
 
 # target to generate assembly for a file
 src/Main/src/extracting_voxel_grid.cpp.s:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/extracting_voxel_grid.cpp.s
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/extracting_voxel_grid.cpp.s
 .PHONY : src/Main/src/extracting_voxel_grid.cpp.s
 
 src/Main/src/plane_from_cluster.o: src/Main/src/plane_from_cluster.cpp.o
@@ -545,7 +308,7 @@ src/Main/src/plane_from_cluster.o: src/Main/src/plane_from_cluster.cpp.o
 
 # target to build an object file
 src/Main/src/plane_from_cluster.cpp.o:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/plane_from_cluster.cpp.o
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/plane_from_cluster.cpp.o
 .PHONY : src/Main/src/plane_from_cluster.cpp.o
 
 src/Main/src/plane_from_cluster.i: src/Main/src/plane_from_cluster.cpp.i
@@ -553,7 +316,7 @@ src/Main/src/plane_from_cluster.i: src/Main/src/plane_from_cluster.cpp.i
 
 # target to preprocess a source file
 src/Main/src/plane_from_cluster.cpp.i:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/plane_from_cluster.cpp.i
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/plane_from_cluster.cpp.i
 .PHONY : src/Main/src/plane_from_cluster.cpp.i
 
 src/Main/src/plane_from_cluster.s: src/Main/src/plane_from_cluster.cpp.s
@@ -561,7 +324,7 @@ src/Main/src/plane_from_cluster.s: src/Main/src/plane_from_cluster.cpp.s
 
 # target to generate assembly for a file
 src/Main/src/plane_from_cluster.cpp.s:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/plane_from_cluster.cpp.s
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/plane_from_cluster.cpp.s
 .PHONY : src/Main/src/plane_from_cluster.cpp.s
 
 src/Main/src/read_matrices_pose.o: src/Main/src/read_matrices_pose.cpp.o
@@ -569,7 +332,7 @@ src/Main/src/read_matrices_pose.o: src/Main/src/read_matrices_pose.cpp.o
 
 # target to build an object file
 src/Main/src/read_matrices_pose.cpp.o:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/read_matrices_pose.cpp.o
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/read_matrices_pose.cpp.o
 .PHONY : src/Main/src/read_matrices_pose.cpp.o
 
 src/Main/src/read_matrices_pose.i: src/Main/src/read_matrices_pose.cpp.i
@@ -577,7 +340,7 @@ src/Main/src/read_matrices_pose.i: src/Main/src/read_matrices_pose.cpp.i
 
 # target to preprocess a source file
 src/Main/src/read_matrices_pose.cpp.i:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/read_matrices_pose.cpp.i
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/read_matrices_pose.cpp.i
 .PHONY : src/Main/src/read_matrices_pose.cpp.i
 
 src/Main/src/read_matrices_pose.s: src/Main/src/read_matrices_pose.cpp.s
@@ -585,7 +348,7 @@ src/Main/src/read_matrices_pose.s: src/Main/src/read_matrices_pose.cpp.s
 
 # target to generate assembly for a file
 src/Main/src/read_matrices_pose.cpp.s:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/read_matrices_pose.cpp.s
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/read_matrices_pose.cpp.s
 .PHONY : src/Main/src/read_matrices_pose.cpp.s
 
 src/Main/src/read_transformations.o: src/Main/src/read_transformations.cpp.o
@@ -593,7 +356,7 @@ src/Main/src/read_transformations.o: src/Main/src/read_transformations.cpp.o
 
 # target to build an object file
 src/Main/src/read_transformations.cpp.o:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/read_transformations.cpp.o
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/read_transformations.cpp.o
 .PHONY : src/Main/src/read_transformations.cpp.o
 
 src/Main/src/read_transformations.i: src/Main/src/read_transformations.cpp.i
@@ -601,7 +364,7 @@ src/Main/src/read_transformations.i: src/Main/src/read_transformations.cpp.i
 
 # target to preprocess a source file
 src/Main/src/read_transformations.cpp.i:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/read_transformations.cpp.i
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/read_transformations.cpp.i
 .PHONY : src/Main/src/read_transformations.cpp.i
 
 src/Main/src/read_transformations.s: src/Main/src/read_transformations.cpp.s
@@ -609,7 +372,7 @@ src/Main/src/read_transformations.s: src/Main/src/read_transformations.cpp.s
 
 # target to generate assembly for a file
 src/Main/src/read_transformations.cpp.s:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/read_transformations.cpp.s
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/read_transformations.cpp.s
 .PHONY : src/Main/src/read_transformations.cpp.s
 
 src/Main/src/user_input.o: src/Main/src/user_input.cpp.o
@@ -617,7 +380,7 @@ src/Main/src/user_input.o: src/Main/src/user_input.cpp.o
 
 # target to build an object file
 src/Main/src/user_input.cpp.o:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/user_input.cpp.o
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/user_input.cpp.o
 .PHONY : src/Main/src/user_input.cpp.o
 
 src/Main/src/user_input.i: src/Main/src/user_input.cpp.i
@@ -625,7 +388,7 @@ src/Main/src/user_input.i: src/Main/src/user_input.cpp.i
 
 # target to preprocess a source file
 src/Main/src/user_input.cpp.i:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/user_input.cpp.i
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/user_input.cpp.i
 .PHONY : src/Main/src/user_input.cpp.i
 
 src/Main/src/user_input.s: src/Main/src/user_input.cpp.s
@@ -633,7 +396,7 @@ src/Main/src/user_input.s: src/Main/src/user_input.cpp.s
 
 # target to generate assembly for a file
 src/Main/src/user_input.cpp.s:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/user_input.cpp.s
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/user_input.cpp.s
 .PHONY : src/Main/src/user_input.cpp.s
 
 src/Main/src/visualize.o: src/Main/src/visualize.cpp.o
@@ -641,7 +404,7 @@ src/Main/src/visualize.o: src/Main/src/visualize.cpp.o
 
 # target to build an object file
 src/Main/src/visualize.cpp.o:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/visualize.cpp.o
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/visualize.cpp.o
 .PHONY : src/Main/src/visualize.cpp.o
 
 src/Main/src/visualize.i: src/Main/src/visualize.cpp.i
@@ -649,7 +412,7 @@ src/Main/src/visualize.i: src/Main/src/visualize.cpp.i
 
 # target to preprocess a source file
 src/Main/src/visualize.cpp.i:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/visualize.cpp.i
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/visualize.cpp.i
 .PHONY : src/Main/src/visualize.cpp.i
 
 src/Main/src/visualize.s: src/Main/src/visualize.cpp.s
@@ -657,440 +420,8 @@ src/Main/src/visualize.s: src/Main/src/visualize.cpp.s
 
 # target to generate assembly for a file
 src/Main/src/visualize.cpp.s:
-	$(MAKE) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/src/Main/src/visualize.cpp.s
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/visualize.cpp.s
 .PHONY : src/Main/src/visualize.cpp.s
-
-src/bare_earth.o: src/bare_earth.cpp.o
-.PHONY : src/bare_earth.o
-
-# target to build an object file
-src/bare_earth.cpp.o:
-	$(MAKE) -f CMakeFiles/bare_earth.dir/build.make CMakeFiles/bare_earth.dir/src/bare_earth.cpp.o
-.PHONY : src/bare_earth.cpp.o
-
-src/bare_earth.i: src/bare_earth.cpp.i
-.PHONY : src/bare_earth.i
-
-# target to preprocess a source file
-src/bare_earth.cpp.i:
-	$(MAKE) -f CMakeFiles/bare_earth.dir/build.make CMakeFiles/bare_earth.dir/src/bare_earth.cpp.i
-.PHONY : src/bare_earth.cpp.i
-
-src/bare_earth.s: src/bare_earth.cpp.s
-.PHONY : src/bare_earth.s
-
-# target to generate assembly for a file
-src/bare_earth.cpp.s:
-	$(MAKE) -f CMakeFiles/bare_earth.dir/build.make CMakeFiles/bare_earth.dir/src/bare_earth.cpp.s
-.PHONY : src/bare_earth.cpp.s
-
-src/cloud_viewer.o: src/cloud_viewer.cpp.o
-.PHONY : src/cloud_viewer.o
-
-# target to build an object file
-src/cloud_viewer.cpp.o:
-	$(MAKE) -f CMakeFiles/cloud_viewer.dir/build.make CMakeFiles/cloud_viewer.dir/src/cloud_viewer.cpp.o
-.PHONY : src/cloud_viewer.cpp.o
-
-src/cloud_viewer.i: src/cloud_viewer.cpp.i
-.PHONY : src/cloud_viewer.i
-
-# target to preprocess a source file
-src/cloud_viewer.cpp.i:
-	$(MAKE) -f CMakeFiles/cloud_viewer.dir/build.make CMakeFiles/cloud_viewer.dir/src/cloud_viewer.cpp.i
-.PHONY : src/cloud_viewer.cpp.i
-
-src/cloud_viewer.s: src/cloud_viewer.cpp.s
-.PHONY : src/cloud_viewer.s
-
-# target to generate assembly for a file
-src/cloud_viewer.cpp.s:
-	$(MAKE) -f CMakeFiles/cloud_viewer.dir/build.make CMakeFiles/cloud_viewer.dir/src/cloud_viewer.cpp.s
-.PHONY : src/cloud_viewer.cpp.s
-
-src/cylinder_extraction.o: src/cylinder_extraction.cpp.o
-.PHONY : src/cylinder_extraction.o
-
-# target to build an object file
-src/cylinder_extraction.cpp.o:
-	$(MAKE) -f CMakeFiles/cylinder_extraction.dir/build.make CMakeFiles/cylinder_extraction.dir/src/cylinder_extraction.cpp.o
-.PHONY : src/cylinder_extraction.cpp.o
-
-src/cylinder_extraction.i: src/cylinder_extraction.cpp.i
-.PHONY : src/cylinder_extraction.i
-
-# target to preprocess a source file
-src/cylinder_extraction.cpp.i:
-	$(MAKE) -f CMakeFiles/cylinder_extraction.dir/build.make CMakeFiles/cylinder_extraction.dir/src/cylinder_extraction.cpp.i
-.PHONY : src/cylinder_extraction.cpp.i
-
-src/cylinder_extraction.s: src/cylinder_extraction.cpp.s
-.PHONY : src/cylinder_extraction.s
-
-# target to generate assembly for a file
-src/cylinder_extraction.cpp.s:
-	$(MAKE) -f CMakeFiles/cylinder_extraction.dir/build.make CMakeFiles/cylinder_extraction.dir/src/cylinder_extraction.cpp.s
-.PHONY : src/cylinder_extraction.cpp.s
-
-src/cylinder_segmentation.o: src/cylinder_segmentation.cpp.o
-.PHONY : src/cylinder_segmentation.o
-
-# target to build an object file
-src/cylinder_segmentation.cpp.o:
-	$(MAKE) -f CMakeFiles/cylinder_segmentation.dir/build.make CMakeFiles/cylinder_segmentation.dir/src/cylinder_segmentation.cpp.o
-.PHONY : src/cylinder_segmentation.cpp.o
-
-src/cylinder_segmentation.i: src/cylinder_segmentation.cpp.i
-.PHONY : src/cylinder_segmentation.i
-
-# target to preprocess a source file
-src/cylinder_segmentation.cpp.i:
-	$(MAKE) -f CMakeFiles/cylinder_segmentation.dir/build.make CMakeFiles/cylinder_segmentation.dir/src/cylinder_segmentation.cpp.i
-.PHONY : src/cylinder_segmentation.cpp.i
-
-src/cylinder_segmentation.s: src/cylinder_segmentation.cpp.s
-.PHONY : src/cylinder_segmentation.s
-
-# target to generate assembly for a file
-src/cylinder_segmentation.cpp.s:
-	$(MAKE) -f CMakeFiles/cylinder_segmentation.dir/build.make CMakeFiles/cylinder_segmentation.dir/src/cylinder_segmentation.cpp.s
-.PHONY : src/cylinder_segmentation.cpp.s
-
-src/don_segmentation.o: src/don_segmentation.cpp.o
-.PHONY : src/don_segmentation.o
-
-# target to build an object file
-src/don_segmentation.cpp.o:
-	$(MAKE) -f CMakeFiles/don_segmentation.dir/build.make CMakeFiles/don_segmentation.dir/src/don_segmentation.cpp.o
-.PHONY : src/don_segmentation.cpp.o
-
-src/don_segmentation.i: src/don_segmentation.cpp.i
-.PHONY : src/don_segmentation.i
-
-# target to preprocess a source file
-src/don_segmentation.cpp.i:
-	$(MAKE) -f CMakeFiles/don_segmentation.dir/build.make CMakeFiles/don_segmentation.dir/src/don_segmentation.cpp.i
-.PHONY : src/don_segmentation.cpp.i
-
-src/don_segmentation.s: src/don_segmentation.cpp.s
-.PHONY : src/don_segmentation.s
-
-# target to generate assembly for a file
-src/don_segmentation.cpp.s:
-	$(MAKE) -f CMakeFiles/don_segmentation.dir/build.make CMakeFiles/don_segmentation.dir/src/don_segmentation.cpp.s
-.PHONY : src/don_segmentation.cpp.s
-
-src/extract_ground_and_don.o: src/extract_ground_and_don.cpp.o
-.PHONY : src/extract_ground_and_don.o
-
-# target to build an object file
-src/extract_ground_and_don.cpp.o:
-	$(MAKE) -f CMakeFiles/extract_ground_and_don.dir/build.make CMakeFiles/extract_ground_and_don.dir/src/extract_ground_and_don.cpp.o
-.PHONY : src/extract_ground_and_don.cpp.o
-
-src/extract_ground_and_don.i: src/extract_ground_and_don.cpp.i
-.PHONY : src/extract_ground_and_don.i
-
-# target to preprocess a source file
-src/extract_ground_and_don.cpp.i:
-	$(MAKE) -f CMakeFiles/extract_ground_and_don.dir/build.make CMakeFiles/extract_ground_and_don.dir/src/extract_ground_and_don.cpp.i
-.PHONY : src/extract_ground_and_don.cpp.i
-
-src/extract_ground_and_don.s: src/extract_ground_and_don.cpp.s
-.PHONY : src/extract_ground_and_don.s
-
-# target to generate assembly for a file
-src/extract_ground_and_don.cpp.s:
-	$(MAKE) -f CMakeFiles/extract_ground_and_don.dir/build.make CMakeFiles/extract_ground_and_don.dir/src/extract_ground_and_don.cpp.s
-.PHONY : src/extract_ground_and_don.cpp.s
-
-src/matrix_transform.o: src/matrix_transform.cpp.o
-.PHONY : src/matrix_transform.o
-
-# target to build an object file
-src/matrix_transform.cpp.o:
-	$(MAKE) -f CMakeFiles/matrix_transform.dir/build.make CMakeFiles/matrix_transform.dir/src/matrix_transform.cpp.o
-.PHONY : src/matrix_transform.cpp.o
-
-src/matrix_transform.i: src/matrix_transform.cpp.i
-.PHONY : src/matrix_transform.i
-
-# target to preprocess a source file
-src/matrix_transform.cpp.i:
-	$(MAKE) -f CMakeFiles/matrix_transform.dir/build.make CMakeFiles/matrix_transform.dir/src/matrix_transform.cpp.i
-.PHONY : src/matrix_transform.cpp.i
-
-src/matrix_transform.s: src/matrix_transform.cpp.s
-.PHONY : src/matrix_transform.s
-
-# target to generate assembly for a file
-src/matrix_transform.cpp.s:
-	$(MAKE) -f CMakeFiles/matrix_transform.dir/build.make CMakeFiles/matrix_transform.dir/src/matrix_transform.cpp.s
-.PHONY : src/matrix_transform.cpp.s
-
-src/narf_keypoint_extraction.o: src/narf_keypoint_extraction.cpp.o
-.PHONY : src/narf_keypoint_extraction.o
-
-# target to build an object file
-src/narf_keypoint_extraction.cpp.o:
-	$(MAKE) -f CMakeFiles/narf_keypoint_extraction.dir/build.make CMakeFiles/narf_keypoint_extraction.dir/src/narf_keypoint_extraction.cpp.o
-.PHONY : src/narf_keypoint_extraction.cpp.o
-
-src/narf_keypoint_extraction.i: src/narf_keypoint_extraction.cpp.i
-.PHONY : src/narf_keypoint_extraction.i
-
-# target to preprocess a source file
-src/narf_keypoint_extraction.cpp.i:
-	$(MAKE) -f CMakeFiles/narf_keypoint_extraction.dir/build.make CMakeFiles/narf_keypoint_extraction.dir/src/narf_keypoint_extraction.cpp.i
-.PHONY : src/narf_keypoint_extraction.cpp.i
-
-src/narf_keypoint_extraction.s: src/narf_keypoint_extraction.cpp.s
-.PHONY : src/narf_keypoint_extraction.s
-
-# target to generate assembly for a file
-src/narf_keypoint_extraction.cpp.s:
-	$(MAKE) -f CMakeFiles/narf_keypoint_extraction.dir/build.make CMakeFiles/narf_keypoint_extraction.dir/src/narf_keypoint_extraction.cpp.s
-.PHONY : src/narf_keypoint_extraction.cpp.s
-
-src/normal_estimation.o: src/normal_estimation.cpp.o
-.PHONY : src/normal_estimation.o
-
-# target to build an object file
-src/normal_estimation.cpp.o:
-	$(MAKE) -f CMakeFiles/normal_estimation.dir/build.make CMakeFiles/normal_estimation.dir/src/normal_estimation.cpp.o
-.PHONY : src/normal_estimation.cpp.o
-
-src/normal_estimation.i: src/normal_estimation.cpp.i
-.PHONY : src/normal_estimation.i
-
-# target to preprocess a source file
-src/normal_estimation.cpp.i:
-	$(MAKE) -f CMakeFiles/normal_estimation.dir/build.make CMakeFiles/normal_estimation.dir/src/normal_estimation.cpp.i
-.PHONY : src/normal_estimation.cpp.i
-
-src/normal_estimation.s: src/normal_estimation.cpp.s
-.PHONY : src/normal_estimation.s
-
-# target to generate assembly for a file
-src/normal_estimation.cpp.s:
-	$(MAKE) -f CMakeFiles/normal_estimation.dir/build.make CMakeFiles/normal_estimation.dir/src/normal_estimation.cpp.s
-.PHONY : src/normal_estimation.cpp.s
-
-src/pcd_read.o: src/pcd_read.cpp.o
-.PHONY : src/pcd_read.o
-
-# target to build an object file
-src/pcd_read.cpp.o:
-	$(MAKE) -f CMakeFiles/pcd_read.dir/build.make CMakeFiles/pcd_read.dir/src/pcd_read.cpp.o
-.PHONY : src/pcd_read.cpp.o
-
-src/pcd_read.i: src/pcd_read.cpp.i
-.PHONY : src/pcd_read.i
-
-# target to preprocess a source file
-src/pcd_read.cpp.i:
-	$(MAKE) -f CMakeFiles/pcd_read.dir/build.make CMakeFiles/pcd_read.dir/src/pcd_read.cpp.i
-.PHONY : src/pcd_read.cpp.i
-
-src/pcd_read.s: src/pcd_read.cpp.s
-.PHONY : src/pcd_read.s
-
-# target to generate assembly for a file
-src/pcd_read.cpp.s:
-	$(MAKE) -f CMakeFiles/pcd_read.dir/build.make CMakeFiles/pcd_read.dir/src/pcd_read.cpp.s
-.PHONY : src/pcd_read.cpp.s
-
-src/pcd_viewer.o: src/pcd_viewer.cpp.o
-.PHONY : src/pcd_viewer.o
-
-# target to build an object file
-src/pcd_viewer.cpp.o:
-	$(MAKE) -f CMakeFiles/pcd_viewer.dir/build.make CMakeFiles/pcd_viewer.dir/src/pcd_viewer.cpp.o
-.PHONY : src/pcd_viewer.cpp.o
-
-src/pcd_viewer.i: src/pcd_viewer.cpp.i
-.PHONY : src/pcd_viewer.i
-
-# target to preprocess a source file
-src/pcd_viewer.cpp.i:
-	$(MAKE) -f CMakeFiles/pcd_viewer.dir/build.make CMakeFiles/pcd_viewer.dir/src/pcd_viewer.cpp.i
-.PHONY : src/pcd_viewer.cpp.i
-
-src/pcd_viewer.s: src/pcd_viewer.cpp.s
-.PHONY : src/pcd_viewer.s
-
-# target to generate assembly for a file
-src/pcd_viewer.cpp.s:
-	$(MAKE) -f CMakeFiles/pcd_viewer.dir/build.make CMakeFiles/pcd_viewer.dir/src/pcd_viewer.cpp.s
-.PHONY : src/pcd_viewer.cpp.s
-
-src/pcd_write.o: src/pcd_write.cpp.o
-.PHONY : src/pcd_write.o
-
-# target to build an object file
-src/pcd_write.cpp.o:
-	$(MAKE) -f CMakeFiles/pcd_write.dir/build.make CMakeFiles/pcd_write.dir/src/pcd_write.cpp.o
-.PHONY : src/pcd_write.cpp.o
-
-src/pcd_write.i: src/pcd_write.cpp.i
-.PHONY : src/pcd_write.i
-
-# target to preprocess a source file
-src/pcd_write.cpp.i:
-	$(MAKE) -f CMakeFiles/pcd_write.dir/build.make CMakeFiles/pcd_write.dir/src/pcd_write.cpp.i
-.PHONY : src/pcd_write.cpp.i
-
-src/pcd_write.s: src/pcd_write.cpp.s
-.PHONY : src/pcd_write.s
-
-# target to generate assembly for a file
-src/pcd_write.cpp.s:
-	$(MAKE) -f CMakeFiles/pcd_write.dir/build.make CMakeFiles/pcd_write.dir/src/pcd_write.cpp.s
-.PHONY : src/pcd_write.cpp.s
-
-src/planar_segmentation.o: src/planar_segmentation.cpp.o
-.PHONY : src/planar_segmentation.o
-
-# target to build an object file
-src/planar_segmentation.cpp.o:
-	$(MAKE) -f CMakeFiles/planar_segmentation.dir/build.make CMakeFiles/planar_segmentation.dir/src/planar_segmentation.cpp.o
-.PHONY : src/planar_segmentation.cpp.o
-
-src/planar_segmentation.i: src/planar_segmentation.cpp.i
-.PHONY : src/planar_segmentation.i
-
-# target to preprocess a source file
-src/planar_segmentation.cpp.i:
-	$(MAKE) -f CMakeFiles/planar_segmentation.dir/build.make CMakeFiles/planar_segmentation.dir/src/planar_segmentation.cpp.i
-.PHONY : src/planar_segmentation.cpp.i
-
-src/planar_segmentation.s: src/planar_segmentation.cpp.s
-.PHONY : src/planar_segmentation.s
-
-# target to generate assembly for a file
-src/planar_segmentation.cpp.s:
-	$(MAKE) -f CMakeFiles/planar_segmentation.dir/build.make CMakeFiles/planar_segmentation.dir/src/planar_segmentation.cpp.s
-.PHONY : src/planar_segmentation.cpp.s
-
-src/random_sample_consensus.o: src/random_sample_consensus.cpp.o
-.PHONY : src/random_sample_consensus.o
-
-# target to build an object file
-src/random_sample_consensus.cpp.o:
-	$(MAKE) -f CMakeFiles/random_sample_consensus.dir/build.make CMakeFiles/random_sample_consensus.dir/src/random_sample_consensus.cpp.o
-.PHONY : src/random_sample_consensus.cpp.o
-
-src/random_sample_consensus.i: src/random_sample_consensus.cpp.i
-.PHONY : src/random_sample_consensus.i
-
-# target to preprocess a source file
-src/random_sample_consensus.cpp.i:
-	$(MAKE) -f CMakeFiles/random_sample_consensus.dir/build.make CMakeFiles/random_sample_consensus.dir/src/random_sample_consensus.cpp.i
-.PHONY : src/random_sample_consensus.cpp.i
-
-src/random_sample_consensus.s: src/random_sample_consensus.cpp.s
-.PHONY : src/random_sample_consensus.s
-
-# target to generate assembly for a file
-src/random_sample_consensus.cpp.s:
-	$(MAKE) -f CMakeFiles/random_sample_consensus.dir/build.make CMakeFiles/random_sample_consensus.dir/src/random_sample_consensus.cpp.s
-.PHONY : src/random_sample_consensus.cpp.s
-
-src/range_image_border_extraction.o: src/range_image_border_extraction.cpp.o
-.PHONY : src/range_image_border_extraction.o
-
-# target to build an object file
-src/range_image_border_extraction.cpp.o:
-	$(MAKE) -f CMakeFiles/range_image_border_extraction.dir/build.make CMakeFiles/range_image_border_extraction.dir/src/range_image_border_extraction.cpp.o
-.PHONY : src/range_image_border_extraction.cpp.o
-
-src/range_image_border_extraction.i: src/range_image_border_extraction.cpp.i
-.PHONY : src/range_image_border_extraction.i
-
-# target to preprocess a source file
-src/range_image_border_extraction.cpp.i:
-	$(MAKE) -f CMakeFiles/range_image_border_extraction.dir/build.make CMakeFiles/range_image_border_extraction.dir/src/range_image_border_extraction.cpp.i
-.PHONY : src/range_image_border_extraction.cpp.i
-
-src/range_image_border_extraction.s: src/range_image_border_extraction.cpp.s
-.PHONY : src/range_image_border_extraction.s
-
-# target to generate assembly for a file
-src/range_image_border_extraction.cpp.s:
-	$(MAKE) -f CMakeFiles/range_image_border_extraction.dir/build.make CMakeFiles/range_image_border_extraction.dir/src/range_image_border_extraction.cpp.s
-.PHONY : src/range_image_border_extraction.cpp.s
-
-src/range_image_creation.o: src/range_image_creation.cpp.o
-.PHONY : src/range_image_creation.o
-
-# target to build an object file
-src/range_image_creation.cpp.o:
-	$(MAKE) -f CMakeFiles/range_image_creation.dir/build.make CMakeFiles/range_image_creation.dir/src/range_image_creation.cpp.o
-.PHONY : src/range_image_creation.cpp.o
-
-src/range_image_creation.i: src/range_image_creation.cpp.i
-.PHONY : src/range_image_creation.i
-
-# target to preprocess a source file
-src/range_image_creation.cpp.i:
-	$(MAKE) -f CMakeFiles/range_image_creation.dir/build.make CMakeFiles/range_image_creation.dir/src/range_image_creation.cpp.i
-.PHONY : src/range_image_creation.cpp.i
-
-src/range_image_creation.s: src/range_image_creation.cpp.s
-.PHONY : src/range_image_creation.s
-
-# target to generate assembly for a file
-src/range_image_creation.cpp.s:
-	$(MAKE) -f CMakeFiles/range_image_creation.dir/build.make CMakeFiles/range_image_creation.dir/src/range_image_creation.cpp.s
-.PHONY : src/range_image_creation.cpp.s
-
-src/range_image_visualization.o: src/range_image_visualization.cpp.o
-.PHONY : src/range_image_visualization.o
-
-# target to build an object file
-src/range_image_visualization.cpp.o:
-	$(MAKE) -f CMakeFiles/range_image_visualization.dir/build.make CMakeFiles/range_image_visualization.dir/src/range_image_visualization.cpp.o
-.PHONY : src/range_image_visualization.cpp.o
-
-src/range_image_visualization.i: src/range_image_visualization.cpp.i
-.PHONY : src/range_image_visualization.i
-
-# target to preprocess a source file
-src/range_image_visualization.cpp.i:
-	$(MAKE) -f CMakeFiles/range_image_visualization.dir/build.make CMakeFiles/range_image_visualization.dir/src/range_image_visualization.cpp.i
-.PHONY : src/range_image_visualization.cpp.i
-
-src/range_image_visualization.s: src/range_image_visualization.cpp.s
-.PHONY : src/range_image_visualization.s
-
-# target to generate assembly for a file
-src/range_image_visualization.cpp.s:
-	$(MAKE) -f CMakeFiles/range_image_visualization.dir/build.make CMakeFiles/range_image_visualization.dir/src/range_image_visualization.cpp.s
-.PHONY : src/range_image_visualization.cpp.s
-
-src/voxel_grid.o: src/voxel_grid.cpp.o
-.PHONY : src/voxel_grid.o
-
-# target to build an object file
-src/voxel_grid.cpp.o:
-	$(MAKE) -f CMakeFiles/voxel_grid.dir/build.make CMakeFiles/voxel_grid.dir/src/voxel_grid.cpp.o
-.PHONY : src/voxel_grid.cpp.o
-
-src/voxel_grid.i: src/voxel_grid.cpp.i
-.PHONY : src/voxel_grid.i
-
-# target to preprocess a source file
-src/voxel_grid.cpp.i:
-	$(MAKE) -f CMakeFiles/voxel_grid.dir/build.make CMakeFiles/voxel_grid.dir/src/voxel_grid.cpp.i
-.PHONY : src/voxel_grid.cpp.i
-
-src/voxel_grid.s: src/voxel_grid.cpp.s
-.PHONY : src/voxel_grid.s
-
-# target to generate assembly for a file
-src/voxel_grid.cpp.s:
-	$(MAKE) -f CMakeFiles/voxel_grid.dir/build.make CMakeFiles/voxel_grid.dir/src/voxel_grid.cpp.s
-.PHONY : src/voxel_grid.cpp.s
 
 # Help Target
 help:
@@ -1098,27 +429,9 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... Main"
-	@echo "... bare_earth"
-	@echo "... cloud_viewer"
-	@echo "... cylinder_extraction"
-	@echo "... cylinder_segmentation"
-	@echo "... don_segmentation"
 	@echo "... edit_cache"
-	@echo "... extract_ground_and_don"
-	@echo "... matrix_transform"
-	@echo "... narf_keypoint_extraction"
-	@echo "... normal_estimation"
-	@echo "... pcd_read"
-	@echo "... pcd_viewer"
-	@echo "... pcd_write"
-	@echo "... planar_segmentation"
-	@echo "... random_sample_consensus"
-	@echo "... range_image_border_extraction"
-	@echo "... range_image_creation"
-	@echo "... range_image_visualization"
+	@echo "... main"
 	@echo "... rebuild_cache"
-	@echo "... voxel_grid"
 	@echo "... src/Main/src/Inputs.o"
 	@echo "... src/Main/src/Inputs.i"
 	@echo "... src/Main/src/Inputs.s"
@@ -1158,60 +471,6 @@ help:
 	@echo "... src/Main/src/visualize.o"
 	@echo "... src/Main/src/visualize.i"
 	@echo "... src/Main/src/visualize.s"
-	@echo "... src/bare_earth.o"
-	@echo "... src/bare_earth.i"
-	@echo "... src/bare_earth.s"
-	@echo "... src/cloud_viewer.o"
-	@echo "... src/cloud_viewer.i"
-	@echo "... src/cloud_viewer.s"
-	@echo "... src/cylinder_extraction.o"
-	@echo "... src/cylinder_extraction.i"
-	@echo "... src/cylinder_extraction.s"
-	@echo "... src/cylinder_segmentation.o"
-	@echo "... src/cylinder_segmentation.i"
-	@echo "... src/cylinder_segmentation.s"
-	@echo "... src/don_segmentation.o"
-	@echo "... src/don_segmentation.i"
-	@echo "... src/don_segmentation.s"
-	@echo "... src/extract_ground_and_don.o"
-	@echo "... src/extract_ground_and_don.i"
-	@echo "... src/extract_ground_and_don.s"
-	@echo "... src/matrix_transform.o"
-	@echo "... src/matrix_transform.i"
-	@echo "... src/matrix_transform.s"
-	@echo "... src/narf_keypoint_extraction.o"
-	@echo "... src/narf_keypoint_extraction.i"
-	@echo "... src/narf_keypoint_extraction.s"
-	@echo "... src/normal_estimation.o"
-	@echo "... src/normal_estimation.i"
-	@echo "... src/normal_estimation.s"
-	@echo "... src/pcd_read.o"
-	@echo "... src/pcd_read.i"
-	@echo "... src/pcd_read.s"
-	@echo "... src/pcd_viewer.o"
-	@echo "... src/pcd_viewer.i"
-	@echo "... src/pcd_viewer.s"
-	@echo "... src/pcd_write.o"
-	@echo "... src/pcd_write.i"
-	@echo "... src/pcd_write.s"
-	@echo "... src/planar_segmentation.o"
-	@echo "... src/planar_segmentation.i"
-	@echo "... src/planar_segmentation.s"
-	@echo "... src/random_sample_consensus.o"
-	@echo "... src/random_sample_consensus.i"
-	@echo "... src/random_sample_consensus.s"
-	@echo "... src/range_image_border_extraction.o"
-	@echo "... src/range_image_border_extraction.i"
-	@echo "... src/range_image_border_extraction.s"
-	@echo "... src/range_image_creation.o"
-	@echo "... src/range_image_creation.i"
-	@echo "... src/range_image_creation.s"
-	@echo "... src/range_image_visualization.o"
-	@echo "... src/range_image_visualization.i"
-	@echo "... src/range_image_visualization.s"
-	@echo "... src/voxel_grid.o"
-	@echo "... src/voxel_grid.i"
-	@echo "... src/voxel_grid.s"
 .PHONY : help
 
 

@@ -27,10 +27,6 @@ namespace patch
 }
 
 
-// comment
-
-
-
 //----------------------------  MAIN  ----------------------------//
 int main (int argc, char** argv)
 {
@@ -79,7 +75,8 @@ int main (int argc, char** argv)
   	pcl::PCDReader reader;
   	std::cout << "File currently being used :"<< filename2 << ".pcd" << endl;
   	reader.read ("../Data/pcd-files/Test/" + filename2 + ".pcd", *cloud_original);
-  	std::cout << "PointCloud before filtering has: " << cloud->points.size () << " data points." << std::endl; //*
+  	std::cout << "PointCloud before filtering has: " 
+              << cloud_original->points.size () << " data points." << std::endl; //*
   	//----------------------------  READ DATA  ----------------------------//
 
 
@@ -90,21 +87,17 @@ int main (int argc, char** argv)
   	extracting_far_away_points(cloud, parameters);
 
   	// Clustering 
-    cout<< "clustering"<< endl;
   	clusters.clear(); // clear the clusters to store new ones
   	cluster_extraction (cloud, clusters, parameters);
 
   	// Extract Planes from clusters so that it is easier to find the cylinders
-    cout<< "planes"<< endl;
   	plane_from_cluster (clusters, parameters);
 
     // Cylinder Segmentation 
-    cout<< "cylinders"<< endl;
    	std::vector <Cylinder> cylinders;
     cylinder_segmentation( cylinders, clusters, T[i], parameters ); 
 
     // Update MAP and save frame
-    cout<< "storage"<< endl;
     UpdateMAP_saveFrame( cylinders, frames, landmarks, T[i], parameters );
 
 
