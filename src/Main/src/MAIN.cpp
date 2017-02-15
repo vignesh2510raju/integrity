@@ -1,30 +1,5 @@
-#include <pcl/ModelCoefficients.h>
-#include <pcl/point_types.h>
-#include <pcl/io/pcd_io.h>
-#include <pcl/filters/extract_indices.h>
-#include <pcl/filters/voxel_grid.h>
-#include <pcl/features/normal_3d.h>
-#include <pcl/kdtree/kdtree.h>
-#include <pcl/sample_consensus/method_types.h>
-#include <pcl/sample_consensus/model_types.h>
-#include <pcl/sample_consensus/sac_model_cylinder.h>
-#include <pcl/segmentation/sac_segmentation.h>
-#include <pcl/segmentation/extract_clusters.h>
-#include <pcl/visualization/cloud_viewer.h>
-#include <pcl/visualization/pcl_visualizer.h>
-#include <string>
-#include <pcl/filters/passthrough.h>
-#include <pcl/common/common.h>
-#include <pcl/common/distances.h>
-#include <pcl/common/common_headers.h>
-#include <iomanip>
-#include <sstream>
-#include <fstream>
-#include <iostream>
-#include <map>
-#include <Eigen/Dense>
-#include <vector>
-#include <pwd.h>
+#include "../header/MAIN.h"
+#include "../header/classes.h"
 #include "../header/read_matrices_pose.h"
 #include "../header/read_velo_to_cam.h"
 #include "../header/read_transformations.h"
@@ -34,8 +9,12 @@
 #include "../header/extracting_voxel_grid.h"
 #include "../header/cluster_extraction.h"
 #include "../header/plane_from_cluster.h"
+#include "../header/plane_from_cluster_2.h"
 #include "../header/cylinder_segmentation.h"
 #include "../header/store_values_in_vector_of_maps.h"
+#include "../header/Inputs.h"
+#include "../header/UpdateMAP_saveFrame.h"
+
 
 namespace patch
 {
@@ -47,156 +26,146 @@ namespace patch
     }
 }
 
+
+
+
+
+
+//----------------------------  MAIN  ----------------------------//
 int main (int argc, char** argv)
 {
-  
-  // int numFrames= 15; //Counter for number of PCD files that need to be executed
 
-
-  int number_of_matched_lm , number_of_expected_lm , number_of_readings, j=0;
-
-  // Vector to store the values in a map
-  // std::vector<int, pcl::PointCloud<pcl::PointXYZ>::Ptr > mapp;
-  
-  Retval value, value2;
-
-  value.number_of_cylinders = 0;
-
-  std::string cloud_name;
+  Parameters parameters;
+  std::vector <Frame> frames;
+  std::vector <Landmark> landmarks;
 
   // User input
-  int min_cluster_size, min_plane_size; 
   bool options_flag= false;
   std::string filename;
-  float min_cluster_distance, min_density, xlim, ylim, zlim;  
 
-  value.numFrames = 8;
-
-  value.max_radius= 0.10f;            
-  value.nd_weight= 0.1f;              
-  min_cluster_size= 30;         
-  min_plane_size= 300;           
-  min_cluster_distance= 0.15;    
-  min_density= 400;             
-  value.min_cylinder_size= 25;
-  xlim= 14;                     
-  ylim= 14;                     
-  zlim= 0.5;
-
-  // Parameters
-  bool SWITH_VOXEL_GRID= true; // Downsample the point cloud
-  bool SWITH_WRITE_CLUSTERS= false; // Write the clusters to disk 
+  parameters= GetUserInputs(argc, argv, parameters);
 
   // To get the pose
-  std::vector<Eigen::Matrix4d> T;
-  T = read_transformations();  
-  
+  std::vector<Eigen::Matrix4d> T= read_transformations();  
+
+  // Need two clouds, original cloud to plot and cloud to work on
+  pcl::PointCloud<pcl::PointXYZ>::Ptr cloud (new pcl::PointCloud<pcl::PointXYZ>),
+  								 cloud_original (new pcl::PointCloud<pcl::PointXYZ>);
+
+  // clusters
+  std::vector<pcl::PointCloud<pcl::PointXYZ>::Ptr > clusters;
+
+  // Initialize viwer
   pcl::visualization::PCLVisualizer viewer("PCL Viewer");
-
-  pcl::PointCloud<pcl::PointXYZ>::Ptr cloud (new pcl::PointCloud<pcl::PointXYZ>), cloud_original (new pcl::PointCloud<pcl::PointXYZ>);
-
- // pcl::visualization::PCLVisualizer viewer("PCL Viewer"); 
-
- for (value.i= 0; value.i <= value.numFrames; ++value.i)
- {
- 
-  std::string filename2; 
-  std::stringstream sa;
-  sa << setw(6) << setfill('0') << value.i;
-  filename2= sa.str();
-
-  // Read in the cloud data
-  pcl::PCDReader reader;
-  // pcl::PointCloud<pcl::PointXYZ>::Ptr cloud (new pcl::PointCloud<pcl::PointXYZ>);
-  std::cout << "File currently being used :"<< filename2 << ".pcd" << endl;
-  reader.read ("../Data/pcd-files/Test/" + filename2 + ".pcd", *cloud_original);
-  //std::cout << "PointCloud before filtering has: " << cloud->points.size () << " data points." << std::endl; //*
-
-  // Create the filtering object: downsample the dataset using a leaf size of 0.75cm
-  // pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filtered (new pcl::PointCloud<pcl::PointXYZ>);
-  extracting_voxel_grid(cloud_original, cloud, SWITH_VOXEL_GRID);
-
-  // Eliminate far-away points
-  extracting_far_away_points(cloud, xlim, ylim, zlim);
-
-  // Clustering 
-  // std::map<int, pcl::PointCloud<pcl::PointXYZ>::Ptr > clusters;
-  value.clusters = cluster_extraction (cloud, min_cluster_distance, min_cluster_size, SWITH_WRITE_CLUSTERS);
-
-  // Extract Planes from clusters
-  // clusters = plane_from_cluster(clusters, min_cluster_size, min_plane_size, min_density);
-
-  // Cylinder Segmentation 
-  // std::map<int, pcl::PointCloud<pcl::PointXYZ>::Ptr > cylinders;
-
-  // std::tie( cylinders, number_of_cylinders ) = cylinder_segmentation(clusters, nd_weight, max_radius, min_cylinder_size, numFrames, i);
-  
-  value2 = cylinder_segmentation(value); 
-
-  // std::cout << "try print cylinders ===== " << number_of_cylinders << std::endl;
-
-  // Storing values 
-  // store_values_in_vector_of_maps (cylinders, i, );
-
-  // Visualization
-  // pcl::visualization::PCLVisualizer viewer("PCL Viewer");
   viewer.setBackgroundColor( 0.0, 0.0, 0.0 );
   // viewer.setFullScreen(true); 
-  pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> white_color (cloud, 255, 255, 255);
-  viewer.addPointCloud <pcl::PointXYZ>(cloud, white_color, "cloud_" + patch::to_string((value.i*10)+value.i));
-  // viewer = visualize(viewer, value2.cylinders, "cylinders", true, value.i);
-  // viewer.removePointCloud (cloud, white_color, "cloud_" + patch::to_string((value.i*10)+value.i));
-  // viewer.removeAllPointClouds ();
-  // viewer.removePointCloud ( cloud , 0);
-  // viewer.removeAllPointClouds ( value.i );
+  viewer.setCameraPosition(-21.1433, -23.4669, 12.7822,  // do not change unless you know how
+                           0.137915, -0.429331, -1.9301,
+                           0.316165, 0.28568, 0.904669);
+  viewer.setCameraClipDistances(0.0792402, 79.2402); 
+  std::string cloud_cylinder_id;
 
-  j=0;
-  while(j <  value2.cylinders.size())
+  for (int i= 0; i <= parameters.numFrames; ++i)
   {
-    if ( value2.cylinders[j] != NULL)
+
+  	//----------------------------  READ DATA  ----------------------------//
+  	// Form the name to read the data
+  	std::string filename2; 
+  	std::stringstream sa;
+  	sa << setw(6) << setfill('0') << i;
+  	filename2= sa.str();
+
+  	// Read in the cloud data
+  	pcl::PCDReader reader;
+  	std::cout << "File currently being used :"<< filename2 << ".pcd" << endl;
+  	reader.read ("../Data/pcd-files/Test/" + filename2 + ".pcd", *cloud_original);
+  	std::cout << "PointCloud before filtering has: " << cloud->points.size () << " data points." << std::endl; //*
+  	//----------------------------  READ DATA  ----------------------------//
+
+
+  	// Create the filtering object: downsample the dataset using a leaf size of 0.75cm
+  	extracting_voxel_grid(cloud_original, cloud, parameters.SWITH_VOXEL_GRID);
+
+  	// Eliminate far-away points
+  	extracting_far_away_points(cloud, parameters);
+
+  	// Clustering 
+    cout<< "clustering"<< endl;
+  	clusters.clear(); // clear the clusters to store new ones
+  	cluster_extraction (cloud, clusters, parameters);
+
+  	// Extract Planes from clusters so that it is easier to find the cylinders
+    cout<< "planes"<< endl;
+  	plane_from_cluster (clusters, parameters);
+
+    // Cylinder Segmentation 
+    cout<< "cylinders"<< endl;
+   	std::vector <Cylinder> cylinders;
+    cylinder_segmentation( cylinders, clusters, T[i], parameters ); 
+
+    // Update MAP and save frame
+    cout<< "storage"<< endl;
+    UpdateMAP_saveFrame( cylinders, frames, landmarks, T[i], parameters );
+
+
+
+
+
+    //----------------------------  VISUALIZATION  ----------------------------//
+    // Remove previous point clouds
+    viewer.removeAllPointClouds();
+
+    // Update cloud original - White cloud
+    pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> 
+                                    white_color (cloud_original, 255, 255, 255);                                
+    viewer.addPointCloud <pcl::PointXYZ>(cloud_original, white_color, 
+                                                       "cloud_original");    
+
+    // Update the cylinders
+    for (std::vector< Cylinder >::iterator 
+                                      it= cylinders.begin();
+                                      it != cylinders.end(); ++it)
     {
-      pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> red_color ( value2.cylinders[j], 255, 0, 0);
+      cloud_cylinder_id= "cloud_cylinder_" + 
+                          patch::to_string( std::distance(cylinders.begin(), it) );
+      pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> 
+                          red_color ( it->cloud, 255, 0, 0);
+      viewer.addPointCloud<pcl::PointXYZ> (it->cloud, red_color, cloud_cylinder_id);
+      viewer.setPointCloudRenderingProperties 
+                  (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 10, cloud_cylinder_id);
 
-      cloud_name= "cloud" + patch::to_string((value.i*10)+j);
-
-      // if (OPT_RED)
-      // {
-      //   viewer.addPointCloud<pcl::PointXYZ> (newClouds[j], red_color, cloud_name);
-      // }
-      // else
-      // {
-      if ( j == 0)
-      {
-       viewer.addPointCloud<pcl::PointXYZ> (value2.cylinders[j], red_color, cloud_name);
-      }
-      else {
-        viewer.updatePointCloud<pcl::PointXYZ> (value2.cylinders[j], red_color, cloud_name);
-      }
+      cout<< "ploting "<< cloud_cylinder_id<< " with #points "<< it->cloud->points.size()<<  endl;
     }
-    j++;
+
+    viewer.spinOnce ();
+    // ----------------------------  VISUALIZATION  ----------------------------//
+
+
+
+
+    std::cout<< "\n \n \n \n \n \n" << std::endl; 
   }
 
-      /* Initialize the veiwer */ 
-    // pcl::visualization::PCLVisualizer viewer ("Point Cloud"); 
 
-    // while(!viewer.wasStopped()) 
-    // { 
-    //         /* play with your data here. */ 
-    //         viewer.setBackgroundColor( 0.0, 0.0, 0.0 );
-    //         pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> white_color (cloud, 255, 255, 255);
-    //         viewer.addPointCloud <pcl::PointXYZ>(cloud, white_color, "cloud_" + patch::to_string((value.i*10)+value.i));
-    //         viewer = visualize(viewer, value2.cylinders, "cylinders", true, value.i);
+  // Show final map
+  printf("#lm\t X\t\t Y\t\t rep \n");
+  for (int i = 0; i < landmarks.size(); ++i)
+  {
+    printf("%d)\t %.2f\t\t %.2f\t\t %d \n", i,
+            landmarks[i].pose[0], landmarks[i].pose[1], landmarks[i].rep );
+  }
+
+  cout<< "\n \n \n" << std::endl; 
+
+  // Show the repeatability per frame
+  printf("#frame\t #features\t #detect\t #expect\t rep \n");
+  for (int i = 0; i < frames.size(); ++i)
+  {
+    printf("%i)\t %d\t\t %d\t\t %d\t\t %.2f \n", i, frames[i].numFeatures,
+                            frames[i].numDetected, 
+                            frames[i].numExpected, frames[i].repRate);
+  }
   
-    //         viewer.spinOnce(75); 
-    // } 
-
-  // Run the viewer
-  // while (!viewer.wasStopped ())
-  // {
-     viewer.spinOnce (75);
-  // }
- }  
-
 
   return (0);
 }

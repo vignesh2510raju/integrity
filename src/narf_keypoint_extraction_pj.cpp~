@@ -1,0 +1,76 @@
+#include <iostream>
+
+#include <boost/thread/thread.hpp>
+#include <pcl/range_image/range_image.h>
+#include <pcl/io/pcd_io.h>
+#include <pcl/visualization/range_image_visualizer.h>
+#include <pcl/visualization/pcl_visualizer.h>
+#include <pcl/features/range_image_border_extractor.h>
+#include <pcl/keypoints/narf_keypoint.h>
+#include <pcl/features/narf_descriptor.h>
+#include <pcl/console/parse.h>
+
+// --------------------
+// -----Parameters-----
+// --------------------
+float angular_resolution = 0.5f;
+float support_size = 0.5f;
+pcl::RangeImage::CoordinateFrame coordinate_frame = pcl::RangeImage::CAMERA_FRAME;
+bool setUnseenToMaxRange = false;
+bool rotation_invariant = true;
+
+void Model3D::CreateRangeImage()
+{
+   pcl::PointCloud<PointType>& pointCloud = *this->cloud;
+ 
+   Eigen::Affine3f sceneSensorPose = Eigen::Affine3f(Eigen::Translation3f(pointCloud.sensor_origin_[0], pointCloud.sensor_origin_[1], pointCloud.sensor_origin_[2]))*Eigen::Affine3f (pointCloud.sensor_orientation_);
+ 
+   this->rangeImage->createFromPointCloud (pointCloud, pcl::deg2rad (0.5f), pcl::deg2rad (360.0f), pcl::deg2rad (180.0f), sceneSensorPose, pcl::RangeImage::CAMERA_FRAME, 0.0, 0.0f, 1);
+ 
+   this->rangeImage->setUnseenToMaxRange();
+}
+ 
+void Model3D::DetectNarfKeypoints()
+{
+   this->CreateRangeImage();
+ 
+       /* Extract NARF keypoints */
+   pcl::RangeImageBorderExtractor rangeImageBorderExtractor;
+   pcl::NarfKeypoint narfKeypointDetector;
+   narfKeypointDetector.setRangeImageBorderExtractor (&rangeImageBorderExtractor);
+   narfKeypointDetector.setRangeImage (this->rangeImage.get());
+   narfKeypointDetector.getParameters().support_size = 0.2f;
+   narfKeypointDetector.setRadiusSearch(0.01);
+   //narfKeypointDetector.setSearchMethod(tree);
+ 
+   pcl::PointCloud<int> keypointIndices;
+   narfKeypointDetector.compute (keypointIndices);
+ 
+   cout << "Found "<<keypointIndices.points.size ()<<" key points.\n";
+ 
+   /* Put the points in a cloud */
+   this->keyPoints->points.resize(keypointIndices.points.size());
+   for (size_t i=0; i<keypointIndices.points.size(); ++i)
+   {
+       this->keyPoints->points[i].getVector3fMap () = this->rangeImage->points[keypointIndices.points[i]].getVector3fMap();
+       this->keyPoints->points[i].r = 0;
+       this->keyPoints->points[i].g = 255;
+       this->keyPoints->points[i].b = 0;
+       //this->keyPoints->points[i].size
+   }
+ 
+   *this->cloud += *this->keyPoints;
+ 
+   /* Extract NARF descriptors for interest points */
+   std::vector<int> keypointIndices2;
+   keypointIndices2.resize (keypointIndices.points.size ());
+   for (unsigned int i=0; i<keypointIndices.size (); ++i) // This step is necessary to get the right vector type
+       keypointIndices2[i]=keypointIndices.points[i];
+   pcl::NarfDescriptor narfDescriptor (this->rangeImage.get(), &keypointIndices2);
+   narfDescriptor.getParameters().support_size = 0.2f;
+   narfDescriptor.getParameters().rotation_invariant = true;
+   pcl::PointCloud<pcl::Narf36> narfDescriptors;
+   narfDescriptor.compute (narfDescriptors);
+   cout << "Extracted "<<narfDescriptors.size ()<<" descriptors for "
+                         <<keypointIndices.points.size ()<< " keypoints.\n";
+}
