@@ -1,3 +1,7 @@
+/* This function extract the clusters from the cloud. For two grounps of points 
+to form two clusters, the minimum distance between any point in one cluster and 
+another point in the other cluster must be less than some specified value. */
+
 
 #include "../header/cluster_extraction.h"
 

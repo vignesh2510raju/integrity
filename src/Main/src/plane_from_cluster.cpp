@@ -1,4 +1,8 @@
 
+/*  This function removes the points conforming planes from the clusters. Then
+those clusters with low density or low number of points are removed so that only
+remain clusters that can form robust cylinders. */
+
 #include "../header/plane_from_cluster.h"
 
 
@@ -93,9 +97,9 @@ for (std::vector<pcl::PointCloud<pcl::PointXYZ>::Ptr >::iterator
 
   area= pcl::calculatePolygonArea (**it);
   density= (*it)->points.size() / area;  
-  std::printf("Cluster: %ld \t#Points: %lu \tDensity: %.2f", 
-                std::distance(clusters.begin(), it), (*it)->points.size(),
-                density);
+  // std::printf("Cluster: %ld \t#Points: %lu \tDensity: %.2f", 
+                // std::distance(clusters.begin(), it), (*it)->points.size(),
+                // density);
 
   // First, check number of points
   if ((*it)->points.size() < p.min_cluster_size)
@@ -117,7 +121,7 @@ for (std::vector<pcl::PointCloud<pcl::PointXYZ>::Ptr >::iterator
     }
     else // Good cluster -> check next cluster
     {
-      cout<< " <--- KEEP"<< endl;
+      // cout<< " <--- KEEP"<< endl;
       it++;
     }
   }

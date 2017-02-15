@@ -1,11 +1,18 @@
 
+/* This function reads the poses of the car and stores them into the variable 
+"matrices". Each entry in matrices is a 4x4 matrix that specifies a rotation and 
+translation from the inertial frame to the current car possition. 
+I: inertial frame
+CAM: left camera frame (reference frame for the GPS/IMU ground truth too)
+R_CAM^I: tranformation matrix from the CAM to I, i.e.
+X_I = R_CAM^I * X_CAM  */
+
 #include "../header/read_matrices_pose.h"
 
 using namespace std;
 
 int read_matrices_pose(std::map<int, Eigen::Matrix4d>& matrices)
 {
-	// map<int, Eigen::Matrix4d> matrices;
 
 	std::string filename;
 	filename= "00";

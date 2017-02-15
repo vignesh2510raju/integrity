@@ -6,6 +6,12 @@
 //  Copyright © 2017 Guille. All rights reserved.
 //
 
+/* This function let's the user change the parameters without compiling the code 
+every time. The options are selected starting with "--" + parameter + " " + value.
+For example, if we want the code to read 30 pcd files, we run:
+./main --numFrames 30
+The values not specified here are initialized by the default constructor of the 
+struct "Parameters" which is defined in "classes.cpp". */
 
 #include "../header/Inputs.h"
 
@@ -26,25 +32,25 @@ Parameters GetUserInputs(int argc, char* argv[], Parameters p)
           {"brief",   no_argument,       &verbose_flag, 0},
           /* These options don’t set a flag.
              We distinguish them by their indices. */
-          {"numFrames",                   required_argument,       0, 'a'},
-          {"min_cluster_size",            required_argument,       0, 'b'},
-          {"min_plane_size",              required_argument,       0, 'c'},
-          {"min_density",                 required_argument,       0, 'd'},
-          {"xlim",                        required_argument,       0, 'e'},
-          {"ylim",                        required_argument,       0, 'f'},
-          {"zlim",                        required_argument,       0, 'g'},
-          {"nd_weight",                   required_argument,       0, 'h'},
-          {"cylinder_max_radius",         required_argument,       0, 'i'},
-          {"options_flag",                no_argument,             0, 'j'},
-          {"SWITH_VOXEL_GRID",            no_argument,             0, 'k'},
-          {"SWITH_WRITE_CLUSTERS",        no_argument,             0, 'l'},
-          {"plane_distance_threshold",    required_argument,       0, 'm'},
-          {"plane_normal_distance_weight",required_argument,       0, 'n'},
-          {"plane_RANSAC_max_iter",       required_argument,       0, 'o'},
-          {"normal_radius_search",        required_argument,       0, 'p'},
-          {"min_cylinder_size",           required_argument,       0, 'q'},
-          {"min_association_distance",    required_argument,       0, 'r'},
-          {"rlim",                        required_argument,       0, 's'},
+          {"numFrames",                       required_argument,       0, 'a'},
+          {"min_cluster_size",                required_argument,       0, 'b'},
+          {"min_plane_size",                  required_argument,       0, 'c'},
+          {"min_density",                     required_argument,       0, 'd'},
+          {"xlim",                            required_argument,       0, 'e'},
+          {"ylim",                            required_argument,       0, 'f'},
+          {"zlim",                            required_argument,       0, 'g'},
+          {"cylinder_normal_distance_weight", required_argument,       0, 'h'},
+          {"cylinder_max_radius",             required_argument,       0, 'i'},
+          {"options_flag",                    required_argument,       0, 'j'},
+          {"SWITH_VOXEL_GRID",                required_argument,       0, 'k'},
+          {"SWITH_WRITE_CLUSTERS",            required_argument,       0, 'l'},
+          {"plane_distance_threshold",        required_argument,       0, 'm'},
+          {"plane_normal_distance_weight",    required_argument,       0, 'n'},
+          {"plane_RANSAC_max_iter",           required_argument,       0, 'o'},
+          {"normal_radius_search",            required_argument,       0, 'p'},
+          {"min_cylinder_size",               required_argument,       0, 'q'},
+          {"min_association_distance",        required_argument,       0, 'r'},
+          {"rlim",                            required_argument,       0, 's'},
           {0, 0, 0, 0}
         };
         
@@ -108,42 +114,52 @@ Parameters GetUserInputs(int argc, char* argv[], Parameters p)
 
             case 'h':
               printf ("option %s with value `%s'\n", long_options[option_index].name, optarg);
+              p.cylinder_normal_distance_weight= atof(optarg);
               break;
 
             case 'i':
               printf ("option %s with value `%s'\n", long_options[option_index].name, optarg);
+              p.cylinder_max_radius= atof(optarg);
               break;
 
             case 'j':
               printf ("option %s with value `%s'\n", long_options[option_index].name, optarg);
+              p.options_flag= (bool) atoi(optarg);
               break;
 
             case 'k':
               printf ("option %s with value `%s'\n", long_options[option_index].name, optarg);
+              p.SWITH_VOXEL_GRID= (bool) atoi(optarg);
               break;
 
             case 'l':
               printf ("option %s with value `%s'\n", long_options[option_index].name, optarg);
+              p.SWITH_WRITE_CLUSTERS= (bool) atoi(optarg);
               break;
 
             case 'm':
               printf ("option %s with value `%s'\n", long_options[option_index].name, optarg);
+              p.plane_distance_threshold= atof(optarg);
               break;
 
             case 'n':
               printf ("option %s with value `%s'\n", long_options[option_index].name, optarg);
+              p.plane_normal_distance_weight= atof(optarg);
               break;
 
             case 'o':
               printf ("option %s with value `%s'\n", long_options[option_index].name, optarg);
+              p.plane_RANSAC_max_iter= atoi(optarg);
               break;
 
             case 'p':
               printf ("option %s with value `%s'\n", long_options[option_index].name, optarg);
+              p.normal_radius_search= atof(optarg);
               break;
 
             case 'q':
               printf ("option %s with value `%s'\n", long_options[option_index].name, optarg);
+              p.min_cylinder_size= atoi(optarg);
               break;
 
             case '?':

@@ -1,3 +1,10 @@
+/* This function takes a point cloud and removes the points farther than rlim and
+lower than zlim. The first part of the code remove the points using only the 
+x and y coordinates. This is only to make the algorithm faster. Then the points
+with a z coordinate lower than zlim are removed (this removes the ground points
+in a simple way). Finally the points farther than rlim from the LIDAR are also 
+removed */
+
 #include "../header/extracting_far_away_points.h"
 
 void extracting_far_away_points (pcl::PointCloud<pcl::PointXYZ>::Ptr cloud, 

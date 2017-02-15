@@ -1,3 +1,6 @@
+/* This file declares the structures (structures are almost the same as classes 
+C++) that will be needed. */
+
 #ifndef CLASSES
 #define CLASSES
 
@@ -12,7 +15,7 @@ struct Parameters
 		int numFrames, min_cluster_size, min_plane_size,
 			min_cylinder_size,  min_density, plane_RANSAC_max_iter;
 
-		float min_cluster_distance, xlim, ylim, zlim, nd_weight,
+		float min_cluster_distance, xlim, ylim, zlim, cylinder_normal_distance_weight,
 			  cylinder_max_radius, plane_distance_threshold, 
 			  plane_normal_distance_weight, normal_radius_search,
 			  min_association_distance, rlim;

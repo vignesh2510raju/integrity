@@ -1,6 +1,10 @@
 
 #include "../header/UpdateMAP_saveFrame.h"
 
+
+/* This function updates the map of landmarks in the std::vector "landmarks" and 
+also updates the std::vector "frames" adding the current frame. */
+
 using namespace std;
 
 void UpdateMAP_saveFrame(std::vector<Cylinder> cylinders, 
@@ -17,7 +21,7 @@ void UpdateMAP_saveFrame(std::vector<Cylinder> cylinders,
 	Frame actual_frame;
 	actual_frame.numFeatures= cylinders.size();
 
-	float minDistance, distance;
+	float minDistance, distance, distance2;
 
 	Eigen::Vector2d carPose2x1;
 	carPose2x1<< T(0,3),
@@ -30,8 +34,12 @@ void UpdateMAP_saveFrame(std::vector<Cylinder> cylinders,
 	// Get the expected number of landmark
 	for (int i = 0; i < landmarks.size(); ++i)
 	{
-		if ( (carPose2x1 - landmarks[i].pose).squaredNorm() < p.rlim^2 )
+		distance= (carPose2x1 - landmarks[i].pose).norm();
+		cout<< "distance = "<< distance<< endl;
+		if ( distance < p.rlim )
+		{
 			actual_frame.numExpected++;
+		}
 	}
 
 	// Loop through features in current scan
@@ -39,15 +47,13 @@ void UpdateMAP_saveFrame(std::vector<Cylinder> cylinders,
 	{
 		// Consider the feature non-associated initially
 		actual_frame.association.push_back(-1);
-		minDistance= p.min_association_distance + 1;
+		minDistance= p.min_association_distance;
 		distance= minDistance;
 
 		// Loop through landmarks in the map
 		for (int l = 0; l < landmarks.size(); ++l)
 		{
-
-
-			distance= (cylinders[i].pose - landmarks[l].pose).squaredNorm();
+			distance= (cylinders[i].pose - landmarks[l].pose).norm();
 			if (distance < minDistance)
 			{
 				minDistance= distance;

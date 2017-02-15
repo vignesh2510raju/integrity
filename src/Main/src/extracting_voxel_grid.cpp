@@ -1,3 +1,6 @@
+/* This function reduces the point cloud size by means of a voxel grid. See PCL 
+documentation: http://pointclouds.org/documentation/tutorials/voxel_grid.php */
+
 #include "../header/extracting_voxel_grid.h"
 #include <pcl/ModelCoefficients.h>
 #include <pcl/point_types.h>

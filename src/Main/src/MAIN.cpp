@@ -1,3 +1,6 @@
+
+/* Main code. The process followed here is explained in the README. */
+
 #include "../header/MAIN.h"
 #include "../header/classes.h"
 #include "../header/read_matrices_pose.h"
@@ -138,6 +141,8 @@ int main (int argc, char** argv)
 
     std::cout<< "\n \n \n \n \n \n" << std::endl; 
   }
+
+
 
 
   // Show final map

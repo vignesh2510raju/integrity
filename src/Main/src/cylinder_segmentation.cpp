@@ -1,5 +1,10 @@
+/* This function takes the clusters and tries to find cylinders in each of them. 
+Only one cylinder can be form of each of the clusters. The cylinders are stored
+in the input variable "cylinders". */
 
 #include "../header/cylinder_segmentation.h"
+
+
 
 void cylinder_segmentation (std::vector<Cylinder> &cylinders, 
                   std::vector<pcl::PointCloud<pcl::PointXYZ>::Ptr > &clusters,
@@ -25,7 +30,7 @@ void cylinder_segmentation (std::vector<Cylinder> &cylinders,
   seg_cylinders.setOptimizeCoefficients (true);
   seg_cylinders.setModelType (pcl::SACMODEL_CYLINDER);
   seg_cylinders.setMethodType (pcl::SAC_RANSAC);
-  seg_cylinders.setNormalDistanceWeight (p.nd_weight); // 0.1
+  seg_cylinders.setNormalDistanceWeight (p.cylinder_normal_distance_weight); // 0.1
   seg_cylinders.setMaxIterations (10000);
   seg_cylinders.setDistanceThreshold (0.2); // 0.2
   seg_cylinders.setRadiusLimits (0.0, p.cylinder_max_radius); // 0.1
