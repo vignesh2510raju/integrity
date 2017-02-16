@@ -110,9 +110,8 @@ This is a brief explanation of what you will find in this repository. You do not
 The process is as follows:
 \begin{enumerate}
 	\item Read the PCD files.
-	\item Remove far away points.
 	\item Down-sample using Voxel grid with a predefined leaf size.
-	\item Remove the ground points.
+	\item Remove far away \& ground points
 	\item Divide the laser scan into clusters.
 	\item Remove clusters with low density of points. Sparse clusters can not form good features (cylinders).
 	\item Extract planes from the clusters and remove them. This makes it easier to find the cylinders.
