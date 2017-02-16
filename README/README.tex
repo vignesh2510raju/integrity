@@ -1,0 +1,131 @@
+
+\documentclass[twoside]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{graphicx}
+%%\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{bm}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\argmin}{\operatornamewithlimits{argmin}}
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+
+\usepackage[hidelinks]{hyperref}
+\usepackage[sc]{mathpazo} % Use the Palatino font
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\linespread{1.05} % Line spacing - Palatino needs more space between lines
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+
+\usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
+%\usepackage{multicol} % Used for the two-column layout of the document
+%\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+%\usepackage{booktabs} % Horizontal rules in tables
+%\usepackage{float} % Required for tables and figures in the multi-column environment - they need to be placed in specific locations with the [H] (e.g. \begin{table}[H])
+%\usepackage{hyperref} % For hyperlinks in the PDF
+%\usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
+%\usepackage{paralist} % Used for the compactitem environment which makes bullet points with less space between them
+%\usepackage{abstract} % Allows abstract customization
+%\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
+%\renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
+\usepackage{titlesec} % Allows customization of titles
+\renewcommand\thesection{\Roman{section}} % Roman numerals for the sections
+\renewcommand\thesubsection{\Roman{subsection}} % Roman numerals for subsections
+\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{} % Change the look of the section titles
+\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
+\usepackage{fancyhdr} % Headers and footers
+\pagestyle{fancy} % All pages have headers and footers
+\fancyhead{} % Blank out the default header
+\fancyfoot{} % Blank out the default footer
+\fancyhead[C]{DA $\bullet$ April 2016} 
+\fancyfoot[RO,LE]{\thepage} % Custom footer text
+
+
+%	TITLE SECTION
+
+
+\title{\vspace{-15mm}\fontsize{24pt}{10pt}\selectfont\textbf{README}} % Article title
+
+\author{
+\large
+\textsc{}\thanks{}\\[2mm] % Your name
+\normalsize  \\ % Your institution
+\normalsize \href{mailto:}{} % Your email address
+\vspace{-5mm}
+}
+\date{}
+
+
+%----------------------------------------------------------------------------------------%----------------------------------------------------------------------------------------%----------------------------------------------------------------------------------------%----------------------------------------------------------------------------------------%----------------------------------------------------------------------------------------%----------------------------------------------------------------------------------------%----------------------------------------------------------------------------------------
+\begin{document}
+
+\section{Structure of the Repository}
+
+In this repository you will find a car localization simulation using the KITTI dataset. There are also examples from the Point Cloud Library tutorials that can be found here: \url{http://pointclouds.org/documentation/tutorials/}. The code for the localization simulation is all contain in the folder MAIN.
+
+This is a brief explanation of what you will find in this repository. You do not need to go through all of it, that would be a wasted of time. Please refer to the PCL documentation to make this programs run. The folder structure is as follows :
+\begin{itemize}
+
+\item \textbf{CmakeFiles}: No need to look in here. Files needed for compilation.
+\item \textbf{Data}: This folder contains the data needed to run the code in the \textbf{src} folder.
+
+\begin{itemize}
+	\item  \textbf{Calibration}: this folder contains transformation matrices needed. Much more information can be found on the KITTI page: \url{http://www.cvlibs.net/datasets/kitti/}. Please take a look at the “Odometry” and “Raw data” tabs in the link above. You'll find plenty of information there, here you have two links to papers explaining how the KITTI dataset is organized:
+	\begin{itemize}
+		\item \textbf{Odometry}: \url{http://www.cvlibs.net/publications/Geiger2012CVPR.pdf}
+		\item \textbf{Raw data}: \url{http://www.cvlibs.net/publications/Geiger2013IJRR.pdf}
+	\end{itemize}
+	\item \textbf{pcd-files}: this folder contain LIDAR data which is stored in .pcd format. We can find two folders inside this directory:
+	\begin{itemize}
+		\item \textbf{KITTI}: the LIDAR data of the KITTI dataset. You will load this files one by one when running the code.
+		\item \textbf{Test}: some other pcd files used in other scripts outside MAIN.
+	\end{itemize}
+
+	\item \textbf{poses}: stores the ground truth poses of the car, which is a combination of GPS and IMU (inertial measure system). Each of the 10 files contained in this folder specifies a few thousands of poses. At this point we are just working with “00.txt”. Again, more information about how the poses are stored can be found in the papers and the line documentation of the KITTI dataset.	
+\end{itemize}
+
+\item \textbf{build}: This folder contains the executable files specified by CmakeLists.txt  which is located in the pcl-pr0j3ct directory.
+\item \textbf{src}: inside this folder is the source code we have written. Except for the MAIN folder, the rest of them are either examples from the tutorials in the point cloud library webpage or modifications of those. They are included here now, but they will be removed at some point. 
+
+\begin{itemize}
+	\item \textbf{MAIN}: This folder contains the core algorithm. 
+	\begin{itemize}
+		\item \textbf{src}: Contains C++ files. The MAIN.cpp is the code for cylinder extraction from KITTI dataset. The other cpp files in this folder are functions that are called by MAIN.cpp. Feel free to get back to me in case I’ve missed comments for certain functions.
+		\begin{itemize}
+			\item \textbf{MAIN}: main script that calls the rest of the functions.
+			\item \textbf{cluster\_extraction.cpp}: You can find the explanation here. \url{http://www.pointclouds.org/documentation/tutorials/cluster_extraction.php}
+			\item \textbf{cylinder\_segmentation.cpp}: \url{http://pointclouds.org/documentation/tutorials/cylinder\_segmentation.php}
+			\item \textbf{extracting\_voxel\_grid.cpp}: We use a leaf size of 0.75cm to down-sample the point cloud \url{http://pointclouds.org/documentation/tutorials/voxel\_grid.php}
+			\item \textbf{plane\_from\_cluster.cpp}: \url{http://www.pointclouds.org/documentation/tutorials/planar_segmentation.php}
+			\item \textbf{read\_matrices\_pose.cpp}: code to read the pose of the car from the poses file.
+			\item \textbf{visualize.cpp}: Code to visualize the point clouds. \url{http://pointclouds.org/documentation/tutorials/pcl_visualizer.php}
+		\end{itemize}
+		\item \textbf{headers}: Contains the header files of the src folder.
+	\end{itemize}
+\end{itemize}
+
+\end{itemize}
+
+\section{Explanation of the MAIN Script}
+The process is as follows:
+\begin{enumerate}
+	\item Read the PCD files.
+	\item Remove far away points.
+	\item Down-sample using Voxel grid with a predefined leaf size.
+	\item Remove the ground points.
+	\item Divide the laser scan into clusters.
+	\item Remove clusters with low density of points. Sparse clusters can not form good features (cylinders).
+	\item Extract planes from the clusters and remove them. This makes it easier to find the cylinders.
+	\item Remove clusters with low number of points after removing the planes. This means that those clusters where planes.
+	\item Run the cylinder segmentation algorithm to extract cylinders out of each cluster remaining.
+	\item Save the extracted cylinders.
+\end{enumerate}
+
+
+
+
+
+
+
+
+\end{document}
