@@ -542,18 +542,6 @@ pcl/point_types.h
 ../header/UpdateMAP_saveFrame.h
 /home/guille/Desktop/integrity/src/Main/header/UpdateMAP_saveFrame.h
 
-/home/guille/Desktop/integrity/src/Main/src/read_matrices_pose.cpp
-../header/read_matrices_pose.h
-/home/guille/Desktop/integrity/src/Main/header/read_matrices_pose.h
-
-/home/guille/Desktop/integrity/src/Main/src/read_transformations.cpp
-../header/read_matrices_pose.h
-/home/guille/Desktop/integrity/src/Main/header/read_matrices_pose.h
-../header/read_velo_to_cam.h
-/home/guille/Desktop/integrity/src/Main/header/read_velo_to_cam.h
-../header/read_transformations.h
-/home/guille/Desktop/integrity/src/Main/header/read_transformations.h
-
 /usr/include/eigen3/Eigen/Cholesky
 Core
 /usr/include/eigen3/Eigen/Core

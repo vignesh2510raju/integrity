@@ -59,9 +59,16 @@
 %----------------------------------------------------------------------------------------%----------------------------------------------------------------------------------------%----------------------------------------------------------------------------------------%----------------------------------------------------------------------------------------%----------------------------------------------------------------------------------------%----------------------------------------------------------------------------------------%----------------------------------------------------------------------------------------
 \begin{document}
 
-\section{Structure of the Repository}
+In this repository you will find a car localization simulation using the KITTI dataset. There are also examples from the Point Cloud Library tutorials that can be found here: \url{http://pointclouds.org/documentation/tutorials/}. The code for the localization simulation is all contain in the folder MAIN. Than can be run as follows:
+\begin{enumerate}
+\item cd integrity/build
+\item cmake ..
+\item make
+\item ./main
+\end{enumerate}
+If any error, remove all files in the build folder and try again. 
 
-In this repository you will find a car localization simulation using the KITTI dataset. There are also examples from the Point Cloud Library tutorials that can be found here: \url{http://pointclouds.org/documentation/tutorials/}. The code for the localization simulation is all contain in the folder MAIN.
+\section{Structure of the Repository}
 
 This is a brief explanation of what you will find in this repository. You do not need to go through all of it, that would be a wasted of time. Please refer to the PCL documentation to make this programs run. The folder structure is as follows :
 \begin{itemize}
@@ -70,7 +77,7 @@ This is a brief explanation of what you will find in this repository. You do not
 \item \textbf{Data}: This folder contains the data needed to run the code in the \textbf{src} folder.
 
 \begin{itemize}
-	\item  \textbf{Calibration}: this folder contains transformation matrices needed. Much more information can be found on the KITTI page: \url{http://www.cvlibs.net/datasets/kitti/}. Please take a look at the “Odometry” and “Raw data” tabs in the link above. You'll find plenty of information there, here you have two links to papers explaining how the KITTI dataset is organized:
+	\item  \textbf{Calibration}: this folder contains transformation matrices needed. Much more information can be found on the KITTI page: \url{http://www.cvlibs.net/datasets/kitti/}. Please take a look at the "Odometry" and "Raw data" tabs in the link above. You'll find plenty of information there, here you have two links to papers explaining how the KITTI dataset is organized:
 	\begin{itemize}
 		\item \textbf{Odometry}: \url{http://www.cvlibs.net/publications/Geiger2012CVPR.pdf}
 		\item \textbf{Raw data}: \url{http://www.cvlibs.net/publications/Geiger2013IJRR.pdf}
@@ -84,7 +91,7 @@ This is a brief explanation of what you will find in this repository. You do not
 	\item \textbf{poses}: stores the ground truth poses of the car, which is a combination of GPS and IMU (inertial measure system). Each of the 10 files contained in this folder specifies a few thousands of poses. At this point we are just working with “00.txt”. Again, more information about how the poses are stored can be found in the papers and the line documentation of the KITTI dataset.	
 \end{itemize}
 
-\item \textbf{build}: This folder contains the executable files specified by CmakeLists.txt  which is located in the pcl-pr0j3ct directory.
+\item \textbf{build}: This folder contains the executable files specified by CmakeLists.txt  which is located in the integrity directory.
 \item \textbf{src}: inside this folder is the source code we have written. Except for the MAIN folder, the rest of them are either examples from the tutorials in the point cloud library webpage or modifications of those. They are included here now, but they will be removed at some point. 
 
 \begin{itemize}
@@ -114,10 +121,11 @@ The process is as follows:
 	\item Remove far away \& ground points
 	\item Divide the laser scan into clusters.
 	\item Remove clusters with low density of points. Sparse clusters can not form good features (cylinders).
-	\item Extract planes from the clusters and remove them. This makes it easier to find the cylinders.
-	\item Remove clusters with low number of points after removing the planes. This means that those clusters where planes.
-	\item Run the cylinder segmentation algorithm to extract cylinders out of each cluster remaining.
-	\item Save the extracted cylinders.
+	\item Extract points conforming to planes from the clusters and remove them. This makes it easier to find the cylinders.
+	\item Remove clusters with low number or low density of points after removing the planes. Clusters with sparse points cannot be robust features.
+	\item Run the cylinder segmentation algorithm to extract cylinders out of each cluster remaining. Each cluster can contain at most one cylinder.
+	\item Associate the current features extracted with the landmarks stored in the map and update the map with the non-associated features in the current LIDAR scan.
+	\item Compute the repeatability in the current scan, defined as $\dfrac{\text{\#detected features}}{\text{\#expected features}}$.
 \end{enumerate}
 
 

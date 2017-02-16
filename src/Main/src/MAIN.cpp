@@ -81,7 +81,7 @@ int main (int argc, char** argv)
   	// Read in the cloud data
   	pcl::PCDReader reader;
   	std::cout << "File currently being used :"<< filename2 << ".pcd" << endl;
-  	reader.read ("../Data/pcd-files/Test/" + filename2 + ".pcd", *cloud_original);
+  	reader.read ("../Data/pcd-files/KITTI/" + filename2 + ".pcd", *cloud_original);
   	std::cout << "PointCloud before filtering has: " 
               << cloud_original->points.size () << " data points." << std::endl; //*
   	//----------------------------  READ DATA  ----------------------------//
