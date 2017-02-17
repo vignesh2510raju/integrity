@@ -7,7 +7,7 @@ also updates the std::vector "frames" adding the current frame. */
 
 using namespace std;
 
-void UpdateMAP_saveFrame(std::vector<Cylinder> cylinders, 
+void UpdateMAP_saveFrame(std::vector<Cylinder> &cylinders, 
 						 std::vector<Frame> &frames, 
 						 std::vector<Landmark> &landmarks, 
 						 Eigen::Matrix4d T,
@@ -45,6 +45,9 @@ void UpdateMAP_saveFrame(std::vector<Cylinder> cylinders,
 	// Loop through features in current scan
 	for (int i = 0; i < actual_frame.numFeatures; ++i)
 	{
+		// Copy the measurements to store in Frames
+		actual_frame.z.push_back(cylinders[i].z);
+
 		// Consider the feature non-associated initially
 		actual_frame.association.push_back(-1);
 		minDistance= p.min_association_distance;

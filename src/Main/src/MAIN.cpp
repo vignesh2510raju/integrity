@@ -57,6 +57,7 @@ int main (int argc, char** argv)
 
   // clusters
   std::vector<pcl::PointCloud<pcl::PointXYZ>::Ptr > clusters;
+  std::vector <Cylinder> cylinders;
 
   // Initialize viwer
   pcl::visualization::PCLVisualizer viewer("PCL Viewer");
@@ -101,7 +102,8 @@ int main (int argc, char** argv)
   	plane_from_cluster (clusters, parameters);
 
     // Cylinder Segmentation 
-   	std::vector <Cylinder> cylinders;
+   	// std::vector <Cylinder> cylinders;
+   	cylinders.clear();
     cylinder_segmentation( cylinders, clusters, T[i], parameters ); 
 
     // Update MAP and save frame
@@ -168,6 +170,14 @@ int main (int argc, char** argv)
                             frames[i].numExpected, frames[i].repRate);
   }
   
+  for (int i = 0; i < frames.size(); ++i)
+  {
+    printf("%i)\t \n", i);
+    for (int j = 0; j < frames[i].numFeatures ; j++)
+    {
+    	cout<< frames[i].z[j]<< endl;
+    }
+  }
 
   return (0);
 }

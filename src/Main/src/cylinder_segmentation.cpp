@@ -78,6 +78,8 @@ for (std::vector<pcl::PointCloud<pcl::PointXYZ>::Ptr >::iterator
     }
     else // Good cylinder -> store in cylinders
     {
+      // Cylinder to push back
+      Cylinder newCylinder;
 
       // Obtain the cross zero axis point
       Eigen::Vector4d pose(0,0,0,1);
@@ -89,15 +91,28 @@ for (std::vector<pcl::PointCloud<pcl::PointXYZ>::Ptr >::iterator
       axis[1]= coefficients_cylinder->values[4];
       axis[2]= coefficients_cylinder->values[5];
 
-      pose= T*pose;
-      axis= T*axis;
+      Eigen::Vector4d pose4x1(0,0,0,1);
+      pose4x1[0]= pose[0] - pose[2]*(axis[0]/axis[2]); // x velo frame
+      pose4x1[1]= pose[1] - pose[2]*(axis[1]/axis[2]); // y velo frame
 
-      Eigen::Vector2d pose2x1;
-      pose2x1[0]= pose[0] - pose[1]*(axis[0]/axis[1]); // x camera frame
-      pose2x1[1]= pose[2] - pose[1]*(axis[2]/axis[1]); // z camera frame
+      // Store the 
+      newCylinder.z[0]= pose4x1[0]; // x velo frame
+      newCylinder.z[1]= pose4x1[1]; // y velo frame
+
+      pose4x1= T*pose4x1; // From velo to cam
+
+      Eigen::Vector2d pose2x1(0,0);
+	  pose2x1[0]= pose4x1[0]; // x camera frame
+      pose2x1[1]= pose4x1[2]; // z camera frame
+
+      // pose= T*pose;
+      // axis= T*axis;
+
+      // Eigen::Vector2d pose2x1;
+      // pose2x1[0]= pose[0] - pose[1]*(axis[0]/axis[1]); // x camera frame
+      // pose2x1[1]= pose[2] - pose[1]*(axis[2]/axis[1]); // z camera frame
 
       // Store the new cylinder
-      Cylinder newCylinder;
       newCylinder.coefficients= coefficients_cylinder ;
       newCylinder.cloud= cloud_cylinder;
       newCylinder.pose= pose2x1;

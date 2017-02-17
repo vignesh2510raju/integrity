@@ -30,8 +30,8 @@ struct Cylinder
 {
 	pcl::ModelCoefficients::Ptr coefficients;
 	pcl::PointCloud<pcl::PointXYZ>::Ptr cloud;
+	Eigen::Vector2d z;
 	Eigen::Vector2d  pose;
-	pcl::PointXYZ centroid;
 
 	Cylinder();	
 };
@@ -42,8 +42,10 @@ struct Frame
 	int numDetected;
 	int numExpected;
 	double repRate;
-	// Eigen::Vector3d rep;
+
 	std::vector<int> association;
+
+	std::vector<Eigen::Vector2d> z;
 
 	Frame();
 };
