@@ -91,19 +91,29 @@ for (std::vector<pcl::PointCloud<pcl::PointXYZ>::Ptr >::iterator
       axis[1]= coefficients_cylinder->values[4];
       axis[2]= coefficients_cylinder->values[5];
 
-      Eigen::Vector4d pose4x1(0,0,0,1);
+      Eigen::Vector4d pose4x1(0,0,0,1), axis4x1(axis[0],axis[1],axis[2],0);
+      Eigen::Vector2d pose2x1(0,0);
+
+      // Project axis to the z_velo = 0 height
       pose4x1[0]= pose[0] - pose[2]*(axis[0]/axis[2]); // x velo frame
       pose4x1[1]= pose[1] - pose[2]*(axis[1]/axis[2]); // y velo frame
 
-      // Store the 
-      newCylinder.z[0]= pose4x1[0]; // x velo frame
-      newCylinder.z[1]= pose4x1[1]; // y velo frame
+      // Store the measurement in local velo frame
+      newCylinder.z_velo[0]= pose4x1[0]; // x velo frame
+      newCylinder.z_velo[1]= pose4x1[1]; // y velo frame
+      newCylinder.z_velo[2]= axis[0]; // vx velo
+      newCylinder.z_velo[3]= axis[1]; // vy velo
+      newCylinder.z_velo[4]= axis[2]; // vz velo
 
-      pose4x1= T*pose4x1; // From velo to cam
+      pose4x1= T*pose4x1; // From velo to nav frame
+      axis4x1= T*axis4x1;
 
-      Eigen::Vector2d pose2x1(0,0);
-	  pose2x1[0]= pose4x1[0]; // x camera frame
-      pose2x1[1]= pose4x1[2]; // z camera frame
+      // Project axis to the z_nav = 0 height
+      newCylinder.z_nav[0]= pose4x1[0] - pose4x1[1]*(axis4x1[0]/axis4x1[1]); // x nav frame
+      newCylinder.z_nav[1]= pose4x1[2] - pose4x1[1]*(axis4x1[2]/axis4x1[1]); // z nav frame
+      newCylinder.z_nav[2]= axis4x1[0];
+      newCylinder.z_nav[3]= axis4x1[1];
+      newCylinder.z_nav[4]= axis4x1[2];
 
       // pose= T*pose;
       // axis= T*axis;
@@ -115,7 +125,6 @@ for (std::vector<pcl::PointCloud<pcl::PointXYZ>::Ptr >::iterator
       // Store the new cylinder
       newCylinder.coefficients= coefficients_cylinder ;
       newCylinder.cloud= cloud_cylinder;
-      newCylinder.pose= pose2x1;
       cylinders.push_back(newCylinder);
     }
 

@@ -170,12 +170,31 @@ int main (int argc, char** argv)
                             frames[i].numExpected, frames[i].repRate);
   }
   
+  cout<< "\n \n \n" << std::endl; 
+
+  // Show the velo measurements in each frame
   for (int i = 0; i < frames.size(); ++i)
   {
-    printf("%i)\t \n", i);
+    printf("%i) z_velo\t \n", i);
     for (int j = 0; j < frames[i].numFeatures ; j++)
     {
-    	cout<< frames[i].z[j]<< endl;
+      printf("%-.2f\t  %-.2f\t %-.2f\t %-.2f\t %-.2f\t \n", 
+             frames[i].z_velo[j][0], frames[i].z_velo[j][1], frames[i].z_velo[j][2],
+             frames[i].z_velo[j][3], frames[i].z_velo[j][4]);
+    }
+  }
+
+  cout<< "\n \n \n" << std::endl; 
+
+  // Show the nav measurements in each frame
+  for (int i = 0; i < frames.size(); ++i)
+  {
+    printf("%i) z_nav\t \n", i);
+    for (int j = 0; j < frames[i].numFeatures ; j++)
+    {
+      printf("%-.2f\t  %-.2f\t %-.2f\t %-.2f\t %-.2f\t \n", 
+             frames[i].z_nav[j][0], frames[i].z_nav[j][1], frames[i].z_nav[j][2],
+             frames[i].z_nav[j][3], frames[i].z_nav[j][4]);
     }
   }
 

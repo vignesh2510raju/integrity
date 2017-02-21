@@ -30,8 +30,7 @@ struct Cylinder
 {
 	pcl::ModelCoefficients::Ptr coefficients;
 	pcl::PointCloud<pcl::PointXYZ>::Ptr cloud;
-	Eigen::Vector2d z;
-	Eigen::Vector2d  pose;
+	Eigen::Matrix<double, 5, 1> z_velo, z_nav;
 
 	Cylinder();	
 };
@@ -45,14 +44,14 @@ struct Frame
 
 	std::vector<int> association;
 
-	std::vector<Eigen::Vector2d> z;
+	std::vector< Eigen::Matrix<double, 5, 1> > z_velo, z_nav;
 
 	Frame();
 };
 
 struct Landmark
 {
-	Eigen::Vector2d  pose;
+	Eigen::Matrix<double, 5, 1> pose;
 	int  rep;
 
 	Landmark();
