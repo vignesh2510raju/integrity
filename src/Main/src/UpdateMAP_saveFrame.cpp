@@ -34,7 +34,7 @@ void UpdateMAP_saveFrame(std::vector<Cylinder> &cylinders,
 	// Get the expected number of landmark
 	for (int i = 0; i < landmarks.size(); ++i)
 	{
-		distance= (carPose2x1 - landmarks[i].pose).norm();
+		distance= (carPose2x1 - landmarks[i].pose.head<2>()).norm();
 		cout<< "distance = "<< distance<< endl;
 		if ( distance < p.rlim )
 		{
@@ -46,8 +46,9 @@ void UpdateMAP_saveFrame(std::vector<Cylinder> &cylinders,
 	for (int i = 0; i < actual_frame.numFeatures; ++i)
 	{
 		// Copy the measurements to store in Frames
-		actual_frame.z.push_back(cylinders[i].z);
-
+		actual_frame.z_velo.push_back(cylinders[i].z_velo);
+		actual_frame.z_nav.push_back(cylinders[i].z_nav);
+		
 		// Consider the feature non-associated initially
 		actual_frame.association.push_back(-1);
 		minDistance= p.min_association_distance;
@@ -56,7 +57,8 @@ void UpdateMAP_saveFrame(std::vector<Cylinder> &cylinders,
 		// Loop through landmarks in the map
 		for (int l = 0; l < landmarks.size(); ++l)
 		{
-			distance= (cylinders[i].pose - landmarks[l].pose).norm();
+			distance= (cylinders[i].z_nav.head<2>() -
+										 landmarks[l].pose.head<2>()).norm();
 			if (distance < minDistance)
 			{
 				minDistance= distance;
@@ -92,7 +94,7 @@ void UpdateMAP_saveFrame(std::vector<Cylinder> &cylinders,
 	{
 		if (actual_frame.association[i] == -1)
 		{
-			landmark.pose= cylinders[i].pose;
+			landmark.pose= cylinders[i].z_nav;
 			landmarks.push_back(landmark);
 		}
 	}

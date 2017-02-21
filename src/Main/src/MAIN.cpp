@@ -167,14 +167,31 @@ int main (int argc, char** argv)
   
   cout<< "\n \n \n" << std::endl; 
 
+  // Show the velo measurements in each frame
   for (int i = 0; i < frames.size(); ++i)
   {
-    printf("%i)\t \n", i);
+    printf("%i) z_velo\t \n", i);
     for (int j = 0; j < frames[i].numFeatures ; j++)
     {
-      cout<< "2x0 part : "<<frames[i].z[j][0]<< "\t";
-    	cout<< "2x1 part : "<<frames[i].z[j][1]<< endl;
-      outputFile << frames[i].z[j][0] << " " << frames[i].z[j][1] << endl;
+      printf("%-.2f\t  %-.2f\t %-.2f\t %-.2f\t %-.2f\t \n", 
+             frames[i].z_velo[j][0], frames[i].z_velo[j][1], frames[i].z_velo[j][2],
+             frames[i].z_velo[j][3], frames[i].z_velo[j][4]);
+    }
+  }
+
+  cout<< "\n \n \n" << std::endl; 
+
+  // Show the nav measurements in each frame
+  cout<< "\n \n \n" << std::endl; 
+
+  for (int i = 0; i < frames.size(); ++i)
+  {
+    printf("%i) z_nav\t \n", i);
+    for (int j = 0; j < frames[i].numFeatures ; j++)
+    {
+      printf("%-.2f\t  %-.2f\t %-.2f\t %-.2f\t %-.2f\t \n", 
+             frames[i].z_nav[j][0], frames[i].z_nav[j][1], frames[i].z_nav[j][2],
+             frames[i].z_nav[j][3], frames[i].z_nav[j][4]);
     }
     outputFile << endl;
   }
