@@ -189,7 +189,7 @@ int main (int argc, char** argv)
     printf("%i) z_nav\t \n", i);
     for (int j = 0; j < frames[i].numFeatures ; j++)
     {
-      printf("%-.2f\t  %-.2f\t %-.2f\t %-.2f\t %-.2f\t \n", 
+      printf("%-.2f\t  %-.2f\t %-.5f\t %-.5f\t %-.5f\t \n", 
              frames[i].z_nav[j][0], frames[i].z_nav[j][1], frames[i].z_nav[j][2],
              frames[i].z_nav[j][3], frames[i].z_nav[j][4]);
     }

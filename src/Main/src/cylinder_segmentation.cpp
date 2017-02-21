@@ -91,6 +91,12 @@ for (std::vector<pcl::PointCloud<pcl::PointXYZ>::Ptr >::iterator
       axis[1]= coefficients_cylinder->values[4];
       axis[2]= coefficients_cylinder->values[5];
 
+      // if the axis is points downward -> flip vector
+      if (axis[2] < 0)
+      {
+        axis= -axis;
+      }
+
       Eigen::Vector4d pose4x1(0,0,0,1), axis4x1(axis[0],axis[1],axis[2],0);
       Eigen::Vector2d pose2x1(0,0);
 
