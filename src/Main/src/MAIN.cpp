@@ -29,11 +29,6 @@ namespace patch
     }
 }
 
-
-// comment trial for github uploading
-
-// comment trial for github uploading part 2
-
 //----------------------------  MAIN  ----------------------------//
 int main (int argc, char** argv)
 {
@@ -47,6 +42,9 @@ int main (int argc, char** argv)
   std::string filename;
 
   parameters= GetUserInputs(argc, argv, parameters);
+
+  // Writing the xy pose of the cylinders extracted in the local car frame to a text file
+  ofstream outputFile("output_for_matlab.txt");
 
   // To get the pose
   std::vector<Eigen::Matrix4d> T= read_transformations();  
@@ -108,9 +106,6 @@ int main (int argc, char** argv)
 
     // Update MAP and save frame
     UpdateMAP_saveFrame( cylinders, frames, landmarks, T[i], parameters );
-
-
-
 
 
     //----------------------------  VISUALIZATION  ----------------------------//
@@ -187,6 +182,8 @@ int main (int argc, char** argv)
   cout<< "\n \n \n" << std::endl; 
 
   // Show the nav measurements in each frame
+  cout<< "\n \n \n" << std::endl; 
+
   for (int i = 0; i < frames.size(); ++i)
   {
     printf("%i) z_nav\t \n", i);
@@ -196,6 +193,7 @@ int main (int argc, char** argv)
              frames[i].z_nav[j][0], frames[i].z_nav[j][1], frames[i].z_nav[j][2],
              frames[i].z_nav[j][3], frames[i].z_nav[j][4]);
     }
+    outputFile << endl;
   }
 
   return (0);
