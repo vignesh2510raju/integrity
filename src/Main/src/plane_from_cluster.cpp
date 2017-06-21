@@ -12,6 +12,7 @@ void plane_from_cluster (
 {
 
 double area, density;
+
 // Extract Planes from clusters
 pcl::SACSegmentationFromNormals<pcl::PointXYZ, pcl::Normal> seg_planes;
 pcl::PointIndices::Ptr inliers (new pcl::PointIndices);
@@ -21,8 +22,8 @@ pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_plane
 seg_planes.setOptimizeCoefficients (false);
 seg_planes.setModelType (pcl::SACMODEL_NORMAL_PLANE);
 seg_planes.setMethodType (pcl::SAC_RANSAC);
-seg_planes.setMaxIterations (p.plane_RANSAC_max_iter);
 seg_planes.setDistanceThreshold (p.plane_distance_threshold);
+seg_planes.setMaxIterations (p.plane_RANSAC_max_iter);
 seg_planes.setNormalDistanceWeight (p.plane_normal_distance_weight);
 
 // Create an empty kdtree representation
@@ -32,6 +33,7 @@ pcl::search::KdTree<pcl::PointXYZ>::Ptr tree
 // Create the normal estimation class, and pass the input dataset to it
 pcl::NormalEstimation<pcl::PointXYZ, pcl::Normal> ne;
 ne.setSearchMethod (tree);
+//ne.setKSearch (5);
 ne.setRadiusSearch (p.normal_radius_search); // Use neighbors in a sphere of radius 3cm
 
 // Normals 
@@ -105,7 +107,7 @@ for (std::vector<pcl::PointCloud<pcl::PointXYZ>::Ptr >::iterator
   if ((*it)->points.size() < p.min_cluster_size)
   {
     clusters.erase(it);
-    cout<< endl;
+    //cout<< endl;
   }
   // Second, check density
   else
@@ -117,7 +119,7 @@ for (std::vector<pcl::PointCloud<pcl::PointXYZ>::Ptr >::iterator
     { 
       // std::cout<< "Eliminating cluster "<< it->first << endl;
       clusters.erase(it);
-      cout<< endl;
+      //cout<< endl;
     }
     else // Good cluster -> check next cluster
     {

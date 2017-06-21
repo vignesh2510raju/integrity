@@ -15,7 +15,7 @@ void extracting_voxel_grid (pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_original,
   {
     pcl::VoxelGrid<pcl::PointXYZ> vg;
     vg.setInputCloud (cloud_original);
-    vg.setLeafSize (0.095f, 0.095f, 0.095f);
+    vg.setLeafSize (0.05f, 0.05f, 0.05f);
     vg.filter (*cloud_filtered);
     // std::cout << "PointCloud after filtering has: " << cloud_filtered->points.size ()  << " data points." << std::endl; 
   }

@@ -59,7 +59,6 @@ Parameters GetUserInputs(int argc, char* argv[], Parameters p)
 
         c = getopt_long (argc, argv, "a:b:c:d:f:",long_options, &option_index);
 
-
         /* Detect the end of the options. */
         if (c == -1)
             break;
@@ -171,14 +170,10 @@ Parameters GetUserInputs(int argc, char* argv[], Parameters p)
         }
 
     }
-
     cout<< "returning the user parameters"<< endl;
     return (p);
 
-
-
 }
-
 
 //funcion that show the help information
 void showhelpinfo(const char *s)

@@ -48,7 +48,8 @@ void cluster_extraction
 
     // std::cout << "Cluster " << clusters.size() - 1 << " has " << clusters.back()->points.size () 
     //           << " points." << std::endl;
-
+    
+    /*
     // If we want to save to clusters to disk - false default
     if (p.SWITH_WRITE_CLUSTERS)
     {
@@ -56,7 +57,7 @@ void cluster_extraction
       std::stringstream ss;
       ss << "cloud_cluster_" << clusters.size() - 1 << ".pcd";
       writer.write<pcl::PointXYZ> (ss.str (), *clusters.back(), false); 
-    }
+    }*/
   } 
 
   // cout<< "# Features extracted before eliminating the planes is: "

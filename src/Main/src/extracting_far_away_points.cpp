@@ -34,10 +34,6 @@ void extracting_far_away_points (pcl::PointCloud<pcl::PointXYZ>::Ptr cloud,
   //pass.setFilterLimitsNegative (true);
   pass.filter (*cloud);
 
-
-
-
-
   pcl::PointCloud<pcl::PointXYZ>::Ptr newCloud (new pcl::PointCloud<pcl::PointXYZ>);
 
   pcl::KdTreeFLANN<pcl::PointXYZ> kdtree;

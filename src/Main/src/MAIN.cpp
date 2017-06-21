@@ -18,7 +18,6 @@
 #include "../header/Inputs.h"
 #include "../header/UpdateMAP_saveFrame.h"
 
-
 namespace patch
 {
     template < typename T > std::string to_string( const T& n )
@@ -66,6 +65,8 @@ int main (int argc, char** argv)
                            0.316165, 0.28568, 0.904669);
   viewer.setCameraClipDistances(0.0792402, 79.2402); 
   std::string cloud_cylinder_id;
+
+  std::cout<<"-------------------------------------------------------------"<<std::endl;
 
   for (int i= 0; i <= parameters.numFrames; ++i)
   {
@@ -138,13 +139,8 @@ int main (int argc, char** argv)
     // ----------------------------  VISUALIZATION  ----------------------------//
 
 
-
-
-    std::cout<< "\n \n \n \n \n \n" << std::endl; 
+    std::cout<<"-------------------------------------------------------------"<<std::endl; 
   }
-
-
-
 
   // Show final map
   printf("#lm\t X\t\t Y\t\t rep \n");
@@ -154,7 +150,7 @@ int main (int argc, char** argv)
             landmarks[i].pose[0], landmarks[i].pose[1], landmarks[i].rep );
   }
 
-  cout<< "\n \n \n" << std::endl; 
+  std::cout<<"-------------------------------------------------------------"<<std::endl;
 
   // Show the repeatability per frame
   printf("#frame\t #features\t #detect\t #expect\t rep \n");
@@ -165,36 +161,34 @@ int main (int argc, char** argv)
                             frames[i].numExpected, frames[i].repRate);
   }
   
-  cout<< "\n \n \n" << std::endl; 
+/*  std::cout<<"-------------------------------------------------------------"<<std::endl;
 
   // Show the velo measurements in each frame
   for (int i = 0; i < frames.size(); ++i)
   {
-    printf("%i) z_velo\t \n", i);
+    printf("%i) z_velo \n", i);
     for (int j = 0; j < frames[i].numFeatures ; j++)
     {
-      printf("%-.2f\t  %-.2f\t %-.2f\t %-.2f\t %-.2f\t \n", 
+      printf("%-.2f\t %-.2f\t %-.2f\t %-.2f\t %-.2f\t \n", 
              frames[i].z_velo[j][0], frames[i].z_velo[j][1], frames[i].z_velo[j][2],
              frames[i].z_velo[j][3], frames[i].z_velo[j][4]);
     }
   }
 
-  cout<< "\n \n \n" << std::endl; 
+  std::cout<<"-------------------------------------------------------------"<<std::endl;
 
   // Show the nav measurements in each frame
-  cout<< "\n \n \n" << std::endl; 
-
   for (int i = 0; i < frames.size(); ++i)
   {
-    printf("%i) z_nav\t \n", i);
+    printf("%i) z_nav \n", i);
     for (int j = 0; j < frames[i].numFeatures ; j++)
     {
-      printf("%-.2f\t  %-.2f\t %-.5f\t %-.5f\t %-.5f\t \n", 
+      printf("%-.2f\t %-.2f\t %-.5f\t %-.5f\t %-.5f\t \n", 
              frames[i].z_nav[j][0], frames[i].z_nav[j][1], frames[i].z_nav[j][2],
              frames[i].z_nav[j][3], frames[i].z_nav[j][4]);
     }
     outputFile << endl;
-  }
-
+  }*/
+  
   return (0);
 }

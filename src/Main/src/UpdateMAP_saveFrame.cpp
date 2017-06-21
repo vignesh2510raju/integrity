@@ -35,7 +35,7 @@ void UpdateMAP_saveFrame(std::vector<Cylinder> &cylinders,
 	for (int i = 0; i < landmarks.size(); ++i)
 	{
 		distance= (carPose2x1 - landmarks[i].pose.head<2>()).norm();
-		cout<< "distance = "<< distance<< endl;
+		cout<< "distance between landmark and car = "<< distance<< endl;
 		if ( distance < p.rlim )
 		{
 			actual_frame.numExpected++;
@@ -73,8 +73,7 @@ void UpdateMAP_saveFrame(std::vector<Cylinder> &cylinders,
 			actual_frame.association[i]= index; // if not it was set to -1
 		}
 		
-
-		cout<< "Cylinder "<< i<< "associated with landmark "
+		cout<< "Cylinder "<< i<< " associated with landmark "
 			<< actual_frame.association[i]<< endl;
 	}
 	if (actual_frame.numExpected == 0)
@@ -87,8 +86,6 @@ void UpdateMAP_saveFrame(std::vector<Cylinder> &cylinders,
 	// Store the new frame
 	frames.push_back(actual_frame);
 
-
-
 	// Update the map with the non-associated
 	for (int i = 0; i < actual_frame.numFeatures; ++i)
 	{
@@ -98,40 +95,5 @@ void UpdateMAP_saveFrame(std::vector<Cylinder> &cylinders,
 			landmarks.push_back(landmark);
 		}
 	}
-
 	cout<< "Size of the map: "<< landmarks.size()<< endl;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -16,6 +16,7 @@ int read_matrices_pose(std::map<int, Eigen::Matrix4d>& matrices)
 
 	std::string filename;
 	filename= "00";
+	
 	cout<< "filename: "<< filename<< endl;
 	string filenameIn= "../Data/poses/00.txt";
 	fstream a_file( filenameIn.c_str() , ios::in | ios::ate);
@@ -34,9 +35,9 @@ int read_matrices_pose(std::map<int, Eigen::Matrix4d>& matrices)
 	{
 		matrices[loop].setIdentity();
 	   	double read_number;
-	   	// cout<< "reading loop: "<< loop << endl;
+	   	//cout<< "reading loop: "<< loop << endl;
 
-	   	// load the matrix, first row, then columns
+	   	//load the matrix, first row, then columns
    		for (int row = 0; row < 3; ++row)
    		{
    			for (int column = 0; column < 4; ++column)

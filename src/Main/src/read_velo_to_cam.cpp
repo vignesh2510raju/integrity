@@ -37,7 +37,6 @@ int read_velo_to_cam(Eigen::Affine3d &transform)
 			cout<<"EOF"<<endl;
 			return 0;
 		}
-
 		if (!strcmp(read_word.c_str(), "R:"))
 		{
 			cout<< "Read rotation"<< endl;
@@ -67,10 +66,7 @@ int read_velo_to_cam(Eigen::Affine3d &transform)
 				// cout<< read_number<< endl;
 			}
 		}
-
 	}
-	
 	cout<< "...end reading"<< endl;
-
 	return 0;
 }
