@@ -114,12 +114,52 @@ main/fast:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
+#=============================================================================
+# Target rules for targets named new_code
+
+# Build rule for target.
+new_code: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 new_code
+.PHONY : new_code
+
+# fast build rule for target.
+new_code/fast:
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/build
+.PHONY : new_code/fast
+
+#=============================================================================
+# Target rules for targets named pmf_method
+
+# Build rule for target.
+pmf_method: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pmf_method
+.PHONY : pmf_method
+
+# fast build rule for target.
+pmf_method/fast:
+	$(MAKE) -f CMakeFiles/pmf_method.dir/build.make CMakeFiles/pmf_method.dir/build
+.PHONY : pmf_method/fast
+
+#=============================================================================
+# Target rules for targets named trial_1_point
+
+# Build rule for target.
+trial_1_point: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 trial_1_point
+.PHONY : trial_1_point
+
+# fast build rule for target.
+trial_1_point/fast:
+	$(MAKE) -f CMakeFiles/trial_1_point.dir/build.make CMakeFiles/trial_1_point.dir/build
+.PHONY : trial_1_point/fast
+
 src/Main/src/Inputs.o: src/Main/src/Inputs.cpp.o
 .PHONY : src/Main/src/Inputs.o
 
 # target to build an object file
 src/Main/src/Inputs.cpp.o:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/Inputs.cpp.o
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/Inputs.cpp.o
 .PHONY : src/Main/src/Inputs.cpp.o
 
 src/Main/src/Inputs.i: src/Main/src/Inputs.cpp.i
@@ -128,6 +168,7 @@ src/Main/src/Inputs.i: src/Main/src/Inputs.cpp.i
 # target to preprocess a source file
 src/Main/src/Inputs.cpp.i:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/Inputs.cpp.i
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/Inputs.cpp.i
 .PHONY : src/Main/src/Inputs.cpp.i
 
 src/Main/src/Inputs.s: src/Main/src/Inputs.cpp.s
@@ -136,6 +177,7 @@ src/Main/src/Inputs.s: src/Main/src/Inputs.cpp.s
 # target to generate assembly for a file
 src/Main/src/Inputs.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/Inputs.cpp.s
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/Inputs.cpp.s
 .PHONY : src/Main/src/Inputs.cpp.s
 
 src/Main/src/MAIN.o: src/Main/src/MAIN.cpp.o
@@ -168,6 +210,7 @@ src/Main/src/UpdateMAP_saveFrame.o: src/Main/src/UpdateMAP_saveFrame.cpp.o
 # target to build an object file
 src/Main/src/UpdateMAP_saveFrame.cpp.o:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/UpdateMAP_saveFrame.cpp.o
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/UpdateMAP_saveFrame.cpp.o
 .PHONY : src/Main/src/UpdateMAP_saveFrame.cpp.o
 
 src/Main/src/UpdateMAP_saveFrame.i: src/Main/src/UpdateMAP_saveFrame.cpp.i
@@ -176,6 +219,7 @@ src/Main/src/UpdateMAP_saveFrame.i: src/Main/src/UpdateMAP_saveFrame.cpp.i
 # target to preprocess a source file
 src/Main/src/UpdateMAP_saveFrame.cpp.i:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/UpdateMAP_saveFrame.cpp.i
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/UpdateMAP_saveFrame.cpp.i
 .PHONY : src/Main/src/UpdateMAP_saveFrame.cpp.i
 
 src/Main/src/UpdateMAP_saveFrame.s: src/Main/src/UpdateMAP_saveFrame.cpp.s
@@ -184,7 +228,56 @@ src/Main/src/UpdateMAP_saveFrame.s: src/Main/src/UpdateMAP_saveFrame.cpp.s
 # target to generate assembly for a file
 src/Main/src/UpdateMAP_saveFrame.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/UpdateMAP_saveFrame.cpp.s
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/UpdateMAP_saveFrame.cpp.s
 .PHONY : src/Main/src/UpdateMAP_saveFrame.cpp.s
+
+src/Main/src/assign_unique_code.o: src/Main/src/assign_unique_code.cpp.o
+.PHONY : src/Main/src/assign_unique_code.o
+
+# target to build an object file
+src/Main/src/assign_unique_code.cpp.o:
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/assign_unique_code.cpp.o
+.PHONY : src/Main/src/assign_unique_code.cpp.o
+
+src/Main/src/assign_unique_code.i: src/Main/src/assign_unique_code.cpp.i
+.PHONY : src/Main/src/assign_unique_code.i
+
+# target to preprocess a source file
+src/Main/src/assign_unique_code.cpp.i:
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/assign_unique_code.cpp.i
+.PHONY : src/Main/src/assign_unique_code.cpp.i
+
+src/Main/src/assign_unique_code.s: src/Main/src/assign_unique_code.cpp.s
+.PHONY : src/Main/src/assign_unique_code.s
+
+# target to generate assembly for a file
+src/Main/src/assign_unique_code.cpp.s:
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/assign_unique_code.cpp.s
+.PHONY : src/Main/src/assign_unique_code.cpp.s
+
+src/Main/src/assign_unique_code2.o: src/Main/src/assign_unique_code2.cpp.o
+.PHONY : src/Main/src/assign_unique_code2.o
+
+# target to build an object file
+src/Main/src/assign_unique_code2.cpp.o:
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/assign_unique_code2.cpp.o
+.PHONY : src/Main/src/assign_unique_code2.cpp.o
+
+src/Main/src/assign_unique_code2.i: src/Main/src/assign_unique_code2.cpp.i
+.PHONY : src/Main/src/assign_unique_code2.i
+
+# target to preprocess a source file
+src/Main/src/assign_unique_code2.cpp.i:
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/assign_unique_code2.cpp.i
+.PHONY : src/Main/src/assign_unique_code2.cpp.i
+
+src/Main/src/assign_unique_code2.s: src/Main/src/assign_unique_code2.cpp.s
+.PHONY : src/Main/src/assign_unique_code2.s
+
+# target to generate assembly for a file
+src/Main/src/assign_unique_code2.cpp.s:
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/assign_unique_code2.cpp.s
+.PHONY : src/Main/src/assign_unique_code2.cpp.s
 
 src/Main/src/classes.o: src/Main/src/classes.cpp.o
 .PHONY : src/Main/src/classes.o
@@ -192,6 +285,7 @@ src/Main/src/classes.o: src/Main/src/classes.cpp.o
 # target to build an object file
 src/Main/src/classes.cpp.o:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/classes.cpp.o
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/classes.cpp.o
 .PHONY : src/Main/src/classes.cpp.o
 
 src/Main/src/classes.i: src/Main/src/classes.cpp.i
@@ -200,6 +294,7 @@ src/Main/src/classes.i: src/Main/src/classes.cpp.i
 # target to preprocess a source file
 src/Main/src/classes.cpp.i:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/classes.cpp.i
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/classes.cpp.i
 .PHONY : src/Main/src/classes.cpp.i
 
 src/Main/src/classes.s: src/Main/src/classes.cpp.s
@@ -208,6 +303,7 @@ src/Main/src/classes.s: src/Main/src/classes.cpp.s
 # target to generate assembly for a file
 src/Main/src/classes.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/classes.cpp.s
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/classes.cpp.s
 .PHONY : src/Main/src/classes.cpp.s
 
 src/Main/src/cluster_extraction.o: src/Main/src/cluster_extraction.cpp.o
@@ -216,6 +312,7 @@ src/Main/src/cluster_extraction.o: src/Main/src/cluster_extraction.cpp.o
 # target to build an object file
 src/Main/src/cluster_extraction.cpp.o:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/cluster_extraction.cpp.o
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/cluster_extraction.cpp.o
 .PHONY : src/Main/src/cluster_extraction.cpp.o
 
 src/Main/src/cluster_extraction.i: src/Main/src/cluster_extraction.cpp.i
@@ -224,6 +321,7 @@ src/Main/src/cluster_extraction.i: src/Main/src/cluster_extraction.cpp.i
 # target to preprocess a source file
 src/Main/src/cluster_extraction.cpp.i:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/cluster_extraction.cpp.i
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/cluster_extraction.cpp.i
 .PHONY : src/Main/src/cluster_extraction.cpp.i
 
 src/Main/src/cluster_extraction.s: src/Main/src/cluster_extraction.cpp.s
@@ -232,7 +330,32 @@ src/Main/src/cluster_extraction.s: src/Main/src/cluster_extraction.cpp.s
 # target to generate assembly for a file
 src/Main/src/cluster_extraction.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/cluster_extraction.cpp.s
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/cluster_extraction.cpp.s
 .PHONY : src/Main/src/cluster_extraction.cpp.s
+
+src/Main/src/codification_voxel.o: src/Main/src/codification_voxel.cpp.o
+.PHONY : src/Main/src/codification_voxel.o
+
+# target to build an object file
+src/Main/src/codification_voxel.cpp.o:
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/codification_voxel.cpp.o
+.PHONY : src/Main/src/codification_voxel.cpp.o
+
+src/Main/src/codification_voxel.i: src/Main/src/codification_voxel.cpp.i
+.PHONY : src/Main/src/codification_voxel.i
+
+# target to preprocess a source file
+src/Main/src/codification_voxel.cpp.i:
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/codification_voxel.cpp.i
+.PHONY : src/Main/src/codification_voxel.cpp.i
+
+src/Main/src/codification_voxel.s: src/Main/src/codification_voxel.cpp.s
+.PHONY : src/Main/src/codification_voxel.s
+
+# target to generate assembly for a file
+src/Main/src/codification_voxel.cpp.s:
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/codification_voxel.cpp.s
+.PHONY : src/Main/src/codification_voxel.cpp.s
 
 src/Main/src/cylinder_segmentation.o: src/Main/src/cylinder_segmentation.cpp.o
 .PHONY : src/Main/src/cylinder_segmentation.o
@@ -240,6 +363,7 @@ src/Main/src/cylinder_segmentation.o: src/Main/src/cylinder_segmentation.cpp.o
 # target to build an object file
 src/Main/src/cylinder_segmentation.cpp.o:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/cylinder_segmentation.cpp.o
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/cylinder_segmentation.cpp.o
 .PHONY : src/Main/src/cylinder_segmentation.cpp.o
 
 src/Main/src/cylinder_segmentation.i: src/Main/src/cylinder_segmentation.cpp.i
@@ -248,6 +372,7 @@ src/Main/src/cylinder_segmentation.i: src/Main/src/cylinder_segmentation.cpp.i
 # target to preprocess a source file
 src/Main/src/cylinder_segmentation.cpp.i:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/cylinder_segmentation.cpp.i
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/cylinder_segmentation.cpp.i
 .PHONY : src/Main/src/cylinder_segmentation.cpp.i
 
 src/Main/src/cylinder_segmentation.s: src/Main/src/cylinder_segmentation.cpp.s
@@ -256,6 +381,7 @@ src/Main/src/cylinder_segmentation.s: src/Main/src/cylinder_segmentation.cpp.s
 # target to generate assembly for a file
 src/Main/src/cylinder_segmentation.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/cylinder_segmentation.cpp.s
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/cylinder_segmentation.cpp.s
 .PHONY : src/Main/src/cylinder_segmentation.cpp.s
 
 src/Main/src/extracting_far_away_points.o: src/Main/src/extracting_far_away_points.cpp.o
@@ -264,6 +390,7 @@ src/Main/src/extracting_far_away_points.o: src/Main/src/extracting_far_away_poin
 # target to build an object file
 src/Main/src/extracting_far_away_points.cpp.o:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/extracting_far_away_points.cpp.o
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/extracting_far_away_points.cpp.o
 .PHONY : src/Main/src/extracting_far_away_points.cpp.o
 
 src/Main/src/extracting_far_away_points.i: src/Main/src/extracting_far_away_points.cpp.i
@@ -272,6 +399,7 @@ src/Main/src/extracting_far_away_points.i: src/Main/src/extracting_far_away_poin
 # target to preprocess a source file
 src/Main/src/extracting_far_away_points.cpp.i:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/extracting_far_away_points.cpp.i
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/extracting_far_away_points.cpp.i
 .PHONY : src/Main/src/extracting_far_away_points.cpp.i
 
 src/Main/src/extracting_far_away_points.s: src/Main/src/extracting_far_away_points.cpp.s
@@ -280,6 +408,7 @@ src/Main/src/extracting_far_away_points.s: src/Main/src/extracting_far_away_poin
 # target to generate assembly for a file
 src/Main/src/extracting_far_away_points.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/extracting_far_away_points.cpp.s
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/extracting_far_away_points.cpp.s
 .PHONY : src/Main/src/extracting_far_away_points.cpp.s
 
 src/Main/src/extracting_voxel_grid.o: src/Main/src/extracting_voxel_grid.cpp.o
@@ -288,6 +417,7 @@ src/Main/src/extracting_voxel_grid.o: src/Main/src/extracting_voxel_grid.cpp.o
 # target to build an object file
 src/Main/src/extracting_voxel_grid.cpp.o:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/extracting_voxel_grid.cpp.o
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/extracting_voxel_grid.cpp.o
 .PHONY : src/Main/src/extracting_voxel_grid.cpp.o
 
 src/Main/src/extracting_voxel_grid.i: src/Main/src/extracting_voxel_grid.cpp.i
@@ -296,6 +426,7 @@ src/Main/src/extracting_voxel_grid.i: src/Main/src/extracting_voxel_grid.cpp.i
 # target to preprocess a source file
 src/Main/src/extracting_voxel_grid.cpp.i:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/extracting_voxel_grid.cpp.i
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/extracting_voxel_grid.cpp.i
 .PHONY : src/Main/src/extracting_voxel_grid.cpp.i
 
 src/Main/src/extracting_voxel_grid.s: src/Main/src/extracting_voxel_grid.cpp.s
@@ -304,7 +435,32 @@ src/Main/src/extracting_voxel_grid.s: src/Main/src/extracting_voxel_grid.cpp.s
 # target to generate assembly for a file
 src/Main/src/extracting_voxel_grid.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/extracting_voxel_grid.cpp.s
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/extracting_voxel_grid.cpp.s
 .PHONY : src/Main/src/extracting_voxel_grid.cpp.s
+
+src/Main/src/filtering_ground_points_PMF.o: src/Main/src/filtering_ground_points_PMF.cpp.o
+.PHONY : src/Main/src/filtering_ground_points_PMF.o
+
+# target to build an object file
+src/Main/src/filtering_ground_points_PMF.cpp.o:
+	$(MAKE) -f CMakeFiles/pmf_method.dir/build.make CMakeFiles/pmf_method.dir/src/Main/src/filtering_ground_points_PMF.cpp.o
+.PHONY : src/Main/src/filtering_ground_points_PMF.cpp.o
+
+src/Main/src/filtering_ground_points_PMF.i: src/Main/src/filtering_ground_points_PMF.cpp.i
+.PHONY : src/Main/src/filtering_ground_points_PMF.i
+
+# target to preprocess a source file
+src/Main/src/filtering_ground_points_PMF.cpp.i:
+	$(MAKE) -f CMakeFiles/pmf_method.dir/build.make CMakeFiles/pmf_method.dir/src/Main/src/filtering_ground_points_PMF.cpp.i
+.PHONY : src/Main/src/filtering_ground_points_PMF.cpp.i
+
+src/Main/src/filtering_ground_points_PMF.s: src/Main/src/filtering_ground_points_PMF.cpp.s
+.PHONY : src/Main/src/filtering_ground_points_PMF.s
+
+# target to generate assembly for a file
+src/Main/src/filtering_ground_points_PMF.cpp.s:
+	$(MAKE) -f CMakeFiles/pmf_method.dir/build.make CMakeFiles/pmf_method.dir/src/Main/src/filtering_ground_points_PMF.cpp.s
+.PHONY : src/Main/src/filtering_ground_points_PMF.cpp.s
 
 src/Main/src/plane_from_cluster.o: src/Main/src/plane_from_cluster.cpp.o
 .PHONY : src/Main/src/plane_from_cluster.o
@@ -312,6 +468,7 @@ src/Main/src/plane_from_cluster.o: src/Main/src/plane_from_cluster.cpp.o
 # target to build an object file
 src/Main/src/plane_from_cluster.cpp.o:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/plane_from_cluster.cpp.o
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/plane_from_cluster.cpp.o
 .PHONY : src/Main/src/plane_from_cluster.cpp.o
 
 src/Main/src/plane_from_cluster.i: src/Main/src/plane_from_cluster.cpp.i
@@ -320,6 +477,7 @@ src/Main/src/plane_from_cluster.i: src/Main/src/plane_from_cluster.cpp.i
 # target to preprocess a source file
 src/Main/src/plane_from_cluster.cpp.i:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/plane_from_cluster.cpp.i
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/plane_from_cluster.cpp.i
 .PHONY : src/Main/src/plane_from_cluster.cpp.i
 
 src/Main/src/plane_from_cluster.s: src/Main/src/plane_from_cluster.cpp.s
@@ -328,6 +486,7 @@ src/Main/src/plane_from_cluster.s: src/Main/src/plane_from_cluster.cpp.s
 # target to generate assembly for a file
 src/Main/src/plane_from_cluster.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/plane_from_cluster.cpp.s
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/plane_from_cluster.cpp.s
 .PHONY : src/Main/src/plane_from_cluster.cpp.s
 
 src/Main/src/read_matrices_pose.o: src/Main/src/read_matrices_pose.cpp.o
@@ -336,6 +495,7 @@ src/Main/src/read_matrices_pose.o: src/Main/src/read_matrices_pose.cpp.o
 # target to build an object file
 src/Main/src/read_matrices_pose.cpp.o:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/read_matrices_pose.cpp.o
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/read_matrices_pose.cpp.o
 .PHONY : src/Main/src/read_matrices_pose.cpp.o
 
 src/Main/src/read_matrices_pose.i: src/Main/src/read_matrices_pose.cpp.i
@@ -344,6 +504,7 @@ src/Main/src/read_matrices_pose.i: src/Main/src/read_matrices_pose.cpp.i
 # target to preprocess a source file
 src/Main/src/read_matrices_pose.cpp.i:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/read_matrices_pose.cpp.i
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/read_matrices_pose.cpp.i
 .PHONY : src/Main/src/read_matrices_pose.cpp.i
 
 src/Main/src/read_matrices_pose.s: src/Main/src/read_matrices_pose.cpp.s
@@ -352,6 +513,7 @@ src/Main/src/read_matrices_pose.s: src/Main/src/read_matrices_pose.cpp.s
 # target to generate assembly for a file
 src/Main/src/read_matrices_pose.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/read_matrices_pose.cpp.s
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/read_matrices_pose.cpp.s
 .PHONY : src/Main/src/read_matrices_pose.cpp.s
 
 src/Main/src/read_transformations.o: src/Main/src/read_transformations.cpp.o
@@ -360,6 +522,7 @@ src/Main/src/read_transformations.o: src/Main/src/read_transformations.cpp.o
 # target to build an object file
 src/Main/src/read_transformations.cpp.o:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/read_transformations.cpp.o
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/read_transformations.cpp.o
 .PHONY : src/Main/src/read_transformations.cpp.o
 
 src/Main/src/read_transformations.i: src/Main/src/read_transformations.cpp.i
@@ -368,6 +531,7 @@ src/Main/src/read_transformations.i: src/Main/src/read_transformations.cpp.i
 # target to preprocess a source file
 src/Main/src/read_transformations.cpp.i:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/read_transformations.cpp.i
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/read_transformations.cpp.i
 .PHONY : src/Main/src/read_transformations.cpp.i
 
 src/Main/src/read_transformations.s: src/Main/src/read_transformations.cpp.s
@@ -376,7 +540,32 @@ src/Main/src/read_transformations.s: src/Main/src/read_transformations.cpp.s
 # target to generate assembly for a file
 src/Main/src/read_transformations.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/read_transformations.cpp.s
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/read_transformations.cpp.s
 .PHONY : src/Main/src/read_transformations.cpp.s
+
+src/Main/src/trial_1_point.o: src/Main/src/trial_1_point.cpp.o
+.PHONY : src/Main/src/trial_1_point.o
+
+# target to build an object file
+src/Main/src/trial_1_point.cpp.o:
+	$(MAKE) -f CMakeFiles/trial_1_point.dir/build.make CMakeFiles/trial_1_point.dir/src/Main/src/trial_1_point.cpp.o
+.PHONY : src/Main/src/trial_1_point.cpp.o
+
+src/Main/src/trial_1_point.i: src/Main/src/trial_1_point.cpp.i
+.PHONY : src/Main/src/trial_1_point.i
+
+# target to preprocess a source file
+src/Main/src/trial_1_point.cpp.i:
+	$(MAKE) -f CMakeFiles/trial_1_point.dir/build.make CMakeFiles/trial_1_point.dir/src/Main/src/trial_1_point.cpp.i
+.PHONY : src/Main/src/trial_1_point.cpp.i
+
+src/Main/src/trial_1_point.s: src/Main/src/trial_1_point.cpp.s
+.PHONY : src/Main/src/trial_1_point.s
+
+# target to generate assembly for a file
+src/Main/src/trial_1_point.cpp.s:
+	$(MAKE) -f CMakeFiles/trial_1_point.dir/build.make CMakeFiles/trial_1_point.dir/src/Main/src/trial_1_point.cpp.s
+.PHONY : src/Main/src/trial_1_point.cpp.s
 
 src/Main/src/user_input.o: src/Main/src/user_input.cpp.o
 .PHONY : src/Main/src/user_input.o
@@ -384,6 +573,7 @@ src/Main/src/user_input.o: src/Main/src/user_input.cpp.o
 # target to build an object file
 src/Main/src/user_input.cpp.o:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/user_input.cpp.o
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/user_input.cpp.o
 .PHONY : src/Main/src/user_input.cpp.o
 
 src/Main/src/user_input.i: src/Main/src/user_input.cpp.i
@@ -392,6 +582,7 @@ src/Main/src/user_input.i: src/Main/src/user_input.cpp.i
 # target to preprocess a source file
 src/Main/src/user_input.cpp.i:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/user_input.cpp.i
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/user_input.cpp.i
 .PHONY : src/Main/src/user_input.cpp.i
 
 src/Main/src/user_input.s: src/Main/src/user_input.cpp.s
@@ -400,6 +591,7 @@ src/Main/src/user_input.s: src/Main/src/user_input.cpp.s
 # target to generate assembly for a file
 src/Main/src/user_input.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/user_input.cpp.s
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/user_input.cpp.s
 .PHONY : src/Main/src/user_input.cpp.s
 
 src/Main/src/visualize.o: src/Main/src/visualize.cpp.o
@@ -408,6 +600,7 @@ src/Main/src/visualize.o: src/Main/src/visualize.cpp.o
 # target to build an object file
 src/Main/src/visualize.cpp.o:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/visualize.cpp.o
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/visualize.cpp.o
 .PHONY : src/Main/src/visualize.cpp.o
 
 src/Main/src/visualize.i: src/Main/src/visualize.cpp.i
@@ -416,6 +609,7 @@ src/Main/src/visualize.i: src/Main/src/visualize.cpp.i
 # target to preprocess a source file
 src/Main/src/visualize.cpp.i:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/visualize.cpp.i
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/visualize.cpp.i
 .PHONY : src/Main/src/visualize.cpp.i
 
 src/Main/src/visualize.s: src/Main/src/visualize.cpp.s
@@ -424,6 +618,7 @@ src/Main/src/visualize.s: src/Main/src/visualize.cpp.s
 # target to generate assembly for a file
 src/Main/src/visualize.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Main/src/visualize.cpp.s
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/src/Main/src/visualize.cpp.s
 .PHONY : src/Main/src/visualize.cpp.s
 
 # Help Target
@@ -434,7 +629,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... main"
+	@echo "... new_code"
+	@echo "... pmf_method"
 	@echo "... rebuild_cache"
+	@echo "... trial_1_point"
 	@echo "... src/Main/src/Inputs.o"
 	@echo "... src/Main/src/Inputs.i"
 	@echo "... src/Main/src/Inputs.s"
@@ -444,12 +642,21 @@ help:
 	@echo "... src/Main/src/UpdateMAP_saveFrame.o"
 	@echo "... src/Main/src/UpdateMAP_saveFrame.i"
 	@echo "... src/Main/src/UpdateMAP_saveFrame.s"
+	@echo "... src/Main/src/assign_unique_code.o"
+	@echo "... src/Main/src/assign_unique_code.i"
+	@echo "... src/Main/src/assign_unique_code.s"
+	@echo "... src/Main/src/assign_unique_code2.o"
+	@echo "... src/Main/src/assign_unique_code2.i"
+	@echo "... src/Main/src/assign_unique_code2.s"
 	@echo "... src/Main/src/classes.o"
 	@echo "... src/Main/src/classes.i"
 	@echo "... src/Main/src/classes.s"
 	@echo "... src/Main/src/cluster_extraction.o"
 	@echo "... src/Main/src/cluster_extraction.i"
 	@echo "... src/Main/src/cluster_extraction.s"
+	@echo "... src/Main/src/codification_voxel.o"
+	@echo "... src/Main/src/codification_voxel.i"
+	@echo "... src/Main/src/codification_voxel.s"
 	@echo "... src/Main/src/cylinder_segmentation.o"
 	@echo "... src/Main/src/cylinder_segmentation.i"
 	@echo "... src/Main/src/cylinder_segmentation.s"
@@ -459,6 +666,9 @@ help:
 	@echo "... src/Main/src/extracting_voxel_grid.o"
 	@echo "... src/Main/src/extracting_voxel_grid.i"
 	@echo "... src/Main/src/extracting_voxel_grid.s"
+	@echo "... src/Main/src/filtering_ground_points_PMF.o"
+	@echo "... src/Main/src/filtering_ground_points_PMF.i"
+	@echo "... src/Main/src/filtering_ground_points_PMF.s"
 	@echo "... src/Main/src/plane_from_cluster.o"
 	@echo "... src/Main/src/plane_from_cluster.i"
 	@echo "... src/Main/src/plane_from_cluster.s"
@@ -468,6 +678,9 @@ help:
 	@echo "... src/Main/src/read_transformations.o"
 	@echo "... src/Main/src/read_transformations.i"
 	@echo "... src/Main/src/read_transformations.s"
+	@echo "... src/Main/src/trial_1_point.o"
+	@echo "... src/Main/src/trial_1_point.i"
+	@echo "... src/Main/src/trial_1_point.s"
 	@echo "... src/Main/src/user_input.o"
 	@echo "... src/Main/src/user_input.i"
 	@echo "... src/Main/src/user_input.s"

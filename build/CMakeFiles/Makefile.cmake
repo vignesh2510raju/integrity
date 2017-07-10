@@ -60,4 +60,7 @@ SET(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 SET(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/main.dir/DependInfo.cmake"
+  "CMakeFiles/new_code.dir/DependInfo.cmake"
+  "CMakeFiles/pmf_method.dir/DependInfo.cmake"
+  "CMakeFiles/trial_1_point.dir/DependInfo.cmake"
   )

@@ -1,1 +1,4 @@
 /home/vignesh/integrity/build/CMakeFiles/main.dir
+/home/vignesh/integrity/build/CMakeFiles/new_code.dir
+/home/vignesh/integrity/build/CMakeFiles/pmf_method.dir
+/home/vignesh/integrity/build/CMakeFiles/trial_1_point.dir

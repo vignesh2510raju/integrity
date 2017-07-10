@@ -91,6 +91,111 @@ clean: CMakeFiles/main.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/new_code.dir
+
+# All Build rule for target.
+CMakeFiles/new_code.dir/all:
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/depend
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/vignesh/integrity/build/CMakeFiles  14 15 16 17 18 19 20 21 22 23 24 25 26 27 28
+	@echo "Built target new_code"
+.PHONY : CMakeFiles/new_code.dir/all
+
+# Include target in all.
+all: CMakeFiles/new_code.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/new_code.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vignesh/integrity/build/CMakeFiles 15
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/new_code.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vignesh/integrity/build/CMakeFiles 0
+.PHONY : CMakeFiles/new_code.dir/rule
+
+# Convenience name for target.
+new_code: CMakeFiles/new_code.dir/rule
+.PHONY : new_code
+
+# clean rule for target.
+CMakeFiles/new_code.dir/clean:
+	$(MAKE) -f CMakeFiles/new_code.dir/build.make CMakeFiles/new_code.dir/clean
+.PHONY : CMakeFiles/new_code.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/new_code.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/pmf_method.dir
+
+# All Build rule for target.
+CMakeFiles/pmf_method.dir/all:
+	$(MAKE) -f CMakeFiles/pmf_method.dir/build.make CMakeFiles/pmf_method.dir/depend
+	$(MAKE) -f CMakeFiles/pmf_method.dir/build.make CMakeFiles/pmf_method.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/vignesh/integrity/build/CMakeFiles  29
+	@echo "Built target pmf_method"
+.PHONY : CMakeFiles/pmf_method.dir/all
+
+# Include target in all.
+all: CMakeFiles/pmf_method.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/pmf_method.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vignesh/integrity/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/pmf_method.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vignesh/integrity/build/CMakeFiles 0
+.PHONY : CMakeFiles/pmf_method.dir/rule
+
+# Convenience name for target.
+pmf_method: CMakeFiles/pmf_method.dir/rule
+.PHONY : pmf_method
+
+# clean rule for target.
+CMakeFiles/pmf_method.dir/clean:
+	$(MAKE) -f CMakeFiles/pmf_method.dir/build.make CMakeFiles/pmf_method.dir/clean
+.PHONY : CMakeFiles/pmf_method.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/pmf_method.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/trial_1_point.dir
+
+# All Build rule for target.
+CMakeFiles/trial_1_point.dir/all:
+	$(MAKE) -f CMakeFiles/trial_1_point.dir/build.make CMakeFiles/trial_1_point.dir/depend
+	$(MAKE) -f CMakeFiles/trial_1_point.dir/build.make CMakeFiles/trial_1_point.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/vignesh/integrity/build/CMakeFiles  30
+	@echo "Built target trial_1_point"
+.PHONY : CMakeFiles/trial_1_point.dir/all
+
+# Include target in all.
+all: CMakeFiles/trial_1_point.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/trial_1_point.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vignesh/integrity/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/trial_1_point.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vignesh/integrity/build/CMakeFiles 0
+.PHONY : CMakeFiles/trial_1_point.dir/rule
+
+# Convenience name for target.
+trial_1_point: CMakeFiles/trial_1_point.dir/rule
+.PHONY : trial_1_point
+
+# clean rule for target.
+CMakeFiles/trial_1_point.dir/clean:
+	$(MAKE) -f CMakeFiles/trial_1_point.dir/build.make CMakeFiles/trial_1_point.dir/clean
+.PHONY : CMakeFiles/trial_1_point.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/trial_1_point.dir/clean
+.PHONY : clean
+
+#=============================================================================
 # Special targets to cleanup operation of make.
 
 # Special rule to run CMake to check the build system integrity.
