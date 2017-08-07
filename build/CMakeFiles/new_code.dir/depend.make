@@ -2206,6 +2206,7 @@ CMakeFiles/new_code.dir/src/Main/src/codification_voxel.cpp.o: ../src/Main/heade
 CMakeFiles/new_code.dir/src/Main/src/codification_voxel.cpp.o: ../src/Main/header/read_transformations.h
 CMakeFiles/new_code.dir/src/Main/src/codification_voxel.cpp.o: ../src/Main/header/read_velo_to_cam.h
 CMakeFiles/new_code.dir/src/Main/src/codification_voxel.cpp.o: ../src/Main/header/remove_ground_points.h
+CMakeFiles/new_code.dir/src/Main/src/codification_voxel.cpp.o: ../src/Main/header/sorting_column.h
 CMakeFiles/new_code.dir/src/Main/src/codification_voxel.cpp.o: ../src/Main/header/store_values_in_vector_of_maps.h
 CMakeFiles/new_code.dir/src/Main/src/codification_voxel.cpp.o: ../src/Main/header/user_input.h
 CMakeFiles/new_code.dir/src/Main/src/codification_voxel.cpp.o: ../src/Main/header/visualize.h

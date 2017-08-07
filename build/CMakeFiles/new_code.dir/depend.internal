@@ -2207,6 +2207,7 @@ CMakeFiles/new_code.dir/src/Main/src/codification_voxel.cpp.o
  /home/vignesh/integrity/src/Main/header/read_transformations.h
  /home/vignesh/integrity/src/Main/header/read_velo_to_cam.h
  /home/vignesh/integrity/src/Main/header/remove_ground_points.h
+ /home/vignesh/integrity/src/Main/header/sorting_column.h
  /home/vignesh/integrity/src/Main/header/store_values_in_vector_of_maps.h
  /home/vignesh/integrity/src/Main/header/user_input.h
  /home/vignesh/integrity/src/Main/header/visualize.h
